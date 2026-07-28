@@ -1,0 +1,18 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+
+# Local Karabiner state must never be committed.
+karabiner.json
+windows-keyboard-for-mac-state.json
+windows-keyboard-for-mac-backups/
+
+# Release artifacts are generated locally and attached to GitHub Releases.
+release/*.zip
+release/*.zip.sha256

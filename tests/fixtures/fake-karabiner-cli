@@ -1,0 +1,67 @@
+#!/bin/zsh
+set -euo pipefail
+
+STATE_PATH=${WINDOWS_KEYBOARD_FOR_MAC_FAKE_STATE:?WINDOWS_KEYBOARD_FOR_MAC_FAKE_STATE is required}
+
+case "${1:-}" in
+  --version)
+    print -r -- "16.1.0"
+    ;;
+  --list-connected-devices)
+    print -r -- '[
+      {
+        "device_id": 1,
+        "device_identifiers": {
+          "is_keyboard": true,
+          "product_id": 591,
+          "vendor_id": 1452,
+          "is_virtual_device": true
+        },
+        "is_apple": true,
+        "manufacturer": "pqrs.org",
+        "product": "Virtual Keyboard"
+      },
+      {
+        "device_id": 2,
+        "device_identifiers": {
+          "is_keyboard": true,
+          "product_id": 2000,
+          "vendor_id": 1000
+        },
+        "manufacturer": "Generic",
+        "product": "Primary Test Windows Keyboard"
+      },
+      {
+        "device_id": 3,
+        "device_identifiers": {
+          "is_keyboard": true,
+          "product_id": 4000,
+          "vendor_id": 3000
+        },
+        "manufacturer": "Generic",
+        "product": "Second Test Windows Keyboard"
+      }
+    ]'
+    ;;
+  --select-profile)
+    if [[ "${WINDOWS_KEYBOARD_FOR_MAC_FAKE_FAIL_SELECT:-0}" == "1" ]]; then
+      print -u2 -r -- "simulated profile selection failure"
+      exit 9
+    fi
+    print -rn -- "$2" > "$STATE_PATH"
+    ;;
+  --show-current-profile-name)
+    if [[ -f "$STATE_PATH" ]]; then
+      < "$STATE_PATH"
+    else
+      print -r -- "Original"
+    fi
+    ;;
+  --lint-complex-modifications)
+    print -r -- "$2: ok"
+    ;;
+  *)
+    print -u2 -r -- "Unsupported fake CLI arguments: $*"
+    exit 2
+    ;;
+esac

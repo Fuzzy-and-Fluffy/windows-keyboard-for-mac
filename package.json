@@ -1,0 +1,26 @@
+{
+  "name": "windows-keyboard-for-mac",
+  "version": "0.2.0",
+  "description": "Device-scoped Windows-style keyboard shortcuts for macOS using Karabiner-Elements.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac.git"
+  },
+  "homepage": "https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac#readme",
+  "bugs": {
+    "url": "https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node src/generate-profile.mjs",
+    "test": "zsh tests/test.sh",
+    "audit": "zsh scripts/audit-public.sh",
+    "package": "zsh scripts/package.sh",
+    "ci": "npm run build && npm test && npm run audit"
+  }
+}

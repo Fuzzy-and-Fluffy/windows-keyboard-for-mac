@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-audit:
+    runs-on: macos-15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Build generated profile
+        run: npm run build
+
+      - name: Verify generated profile is committed
+        run: git diff --exit-code -- dist/windows-keyboard-for-mac-profile.json
+
+      - name: Run tests
+        run: npm test
+
+      - name: Audit public files
+        run: npm run audit
+
+      - name: Build release archive
+        run: npm run package
