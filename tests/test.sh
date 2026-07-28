@@ -103,7 +103,7 @@ jq -e '
 
 BACKUP_PATH=$(jq -r '.backup_path' "$TEMP_DIR/install-result.json")
 [[ -f "$BACKUP_PATH" ]]
-rg -q '"Original"' "$BACKUP_PATH"
+/usr/bin/grep -q '"Original"' "$BACKUP_PATH"
 
 ./add-keyboard.command \
   --non-interactive \
@@ -177,6 +177,6 @@ jq -e '
   ([.profiles[] | select(.name == "Windows Keyboard for Mac")] | length) == 0 and
   ([.profiles[] | select(.name == "Original" and .selected == true)] | length) == 1
 ' "$TEMP_DIR/karabiner.json" >/dev/null
-rg -q 'restored automatically' "$TEMP_DIR/failed-install-output.txt"
+/usr/bin/grep -q 'restored automatically' "$TEMP_DIR/failed-install-output.txt"
 
 print -r -- "Windows Keyboard for Mac tests passed."

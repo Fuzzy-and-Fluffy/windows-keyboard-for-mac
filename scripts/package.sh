@@ -46,7 +46,7 @@ chmod +x \
 )
 
 if /usr/bin/unzip -Z1 "$ARCHIVE_PATH" |
-  rg '(^|/)(\.DS_Store|__MACOSX|karabiner\.json|windows-keyboard-for-mac-state\.json)(/|$)'; then
+  /usr/bin/grep -E '(^|/)(\.DS_Store|__MACOSX|karabiner\.json|windows-keyboard-for-mac-state\.json)(/|$)'; then
   print -u2 -r -- "Release archive contains a local or macOS metadata file."
   exit 1
 fi

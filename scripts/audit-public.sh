@@ -30,7 +30,7 @@ email_pattern='[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}'
 private_key_pattern='BEGIN [A-Z0-9 ]*PRIVATE '"KEY"
 token_pattern='(ghp|github_pat|sk)-[[:alnum:]_-]{16,}'
 
-if rg -n -I --hidden \
+if /usr/bin/grep -ERnI \
   "$home_path_pattern|$windows_home_pattern|$email_pattern|$private_key_pattern|$token_pattern" \
   "${scan_targets[@]}"; then
   print -u2 -r -- "Public audit failed: a local path, email address, private key, or token-like value was found."
@@ -40,11 +40,11 @@ fi
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   candidate_files=$(git ls-files --cached --others --exclude-standard)
 else
-  candidate_files=$(rg --files --hidden "${scan_targets[@]}")
+  candidate_files=$(find "${scan_targets[@]}" -type f -print)
 fi
 
 if print -r -- "$candidate_files" |
-  rg '(^|/)(\.DS_Store|karabiner\.json|windows-keyboard-for-mac-state\.json)$'; then
+  /usr/bin/grep -E '(^|/)(\.DS_Store|karabiner\.json|windows-keyboard-for-mac-state\.json)$'; then
   print -u2 -r -- "Public audit failed: a local state file is present in the repository inputs."
   exit 1
 fi
