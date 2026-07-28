@@ -76,6 +76,10 @@ function variableUnless(name, value) {
   return { type: "variable_unless", name, value };
 }
 
+function expressionUnless(expression) {
+  return { type: "expression_unless", expression };
+}
+
 function from(keyCode, mandatory = [], optional = ["caps_lock"]) {
   const result = { key_code: keyCode };
   if (mandatory.length || optional.length) {
@@ -144,6 +148,14 @@ const remoteUnless = appUnless(remoteBundles);
 const terminalIf = appIf(terminalBundles);
 const browserIf = appIf(browserBundles);
 const finderIf = appIf(["^com\\.apple\\.finder$"]);
+const finderItemIf = [
+  finderIf,
+  variableUnless("accessibility.focused_ui_element.role_string", 0),
+  variableUnless("accessibility.focused_ui_element.role_string", ""),
+  expressionUnless(
+    "accessibility.focused_ui_element.role_string like 'AXText*'"
+  )
+];
 
 const rules = [];
 
@@ -234,7 +246,7 @@ rules.push(
         toKey("c", ["left_command"]),
         setVariable("windows_keyboard_for_mac_finder_cut", 1)
       ],
-      conditions: [finderIf],
+      conditions: finderItemIf,
       description: "Ctrl+X marks selected Finder items for moving."
     }),
     manipulator({
@@ -244,46 +256,52 @@ rules.push(
         toKey("v", ["left_command", "left_option"]),
         setVariable("windows_keyboard_for_mac_finder_cut", 0)
       ],
-      conditions: [finderIf, variableIf("windows_keyboard_for_mac_finder_cut", 1)],
+      conditions: [
+        ...finderItemIf,
+        variableIf("windows_keyboard_for_mac_finder_cut", 1)
+      ],
       description: "Ctrl+V moves items after Ctrl+X."
     }),
     manipulator({
       key: "v",
       mandatory: ["command"],
       to: [toKey("v", ["left_command"])],
-      conditions: [finderIf, variableUnless("windows_keyboard_for_mac_finder_cut", 1)],
+      conditions: [
+        ...finderItemIf,
+        variableUnless("windows_keyboard_for_mac_finder_cut", 1)
+      ],
       description: "Ctrl+V remains a normal paste when no cut is pending."
     }),
     manipulator({
       key: "f2",
       to: [toKey("return_or_enter")],
-      conditions: [finderIf],
+      conditions: finderItemIf,
       description: "F2 renames the selected item."
     }),
     manipulator({
       key: "return_or_enter",
       to: [toKey("down_arrow", ["left_command"])],
-      conditions: [finderIf],
-      description: "Enter opens the selected item."
+      conditions: finderItemIf,
+      description: "Enter opens the selected item only when Finder is not editing text."
     }),
     manipulator({
       key: "delete_forward",
       mandatory: ["shift"],
       to: [toKey("delete_or_backspace", ["left_command", "left_option"])],
-      conditions: [finderIf],
+      conditions: finderItemIf,
       description: "Shift+Delete requests immediate deletion."
     }),
     manipulator({
       key: "delete_forward",
       to: [toKey("delete_or_backspace", ["left_command"])],
-      conditions: [finderIf],
+      conditions: finderItemIf,
       description: "Delete moves the selected item to Trash."
     }),
     manipulator({
       key: "delete_or_backspace",
       to: [toKey("open_bracket", ["left_command"])],
-      conditions: [finderIf],
-      description: "Backspace navigates back."
+      conditions: finderItemIf,
+      description: "Backspace navigates back only when Finder is not editing text."
     })
   ])
 );
@@ -660,7 +678,7 @@ const profile = {
     generated_by: "src/generate-profile.mjs",
     target_placeholder_description: PLACEHOLDER_DESCRIPTION,
     minimum_macos_major: 15,
-    minimum_karabiner_major: 15
+    minimum_karabiner_major: 16
   }
 };
 

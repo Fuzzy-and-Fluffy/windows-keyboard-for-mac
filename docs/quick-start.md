@@ -1,7 +1,7 @@
 # Quick start
 
-Windows Keyboard for Mac is currently an unsigned GitHub preview for technical users and
-early testers. It requires the official Karabiner-Elements installation.
+Windows Keyboard for Mac is currently an unsigned GitHub preview for technical
+users and early testers. It requires Karabiner-Elements 16 or newer.
 
 ## 1. Install Karabiner-Elements
 

@@ -40,7 +40,7 @@ Every Complex Modification also contains a `device_if` condition. The rules ther
 ## Requirements
 
 - macOS 15 or newer;
-- Karabiner-Elements 15 or newer;
+- Karabiner-Elements 16 or newer;
 - one connected non-Apple physical keyboard;
 - macOS Modifier Keys set to their defaults;
 - no active `hidutil UserKeyMapping`.
@@ -114,7 +114,7 @@ Highlights:
 - `Ctrl+Shift+3/4/5` invoke the corresponding macOS screenshot shortcuts;
 - `Win+Shift+S` captures a selected area;
 - `Alt+Tab`, `Alt+F4`, Windows-style Home/End, Ctrl+Arrow and word deletion are translated;
-- Finder gets Windows-style cut/move, Enter, F2, Delete, Shift+Delete and Backspace behavior;
+- Finder gets Windows-style cut/move, Enter, F2, Delete, Shift+Delete and Backspace behavior without hijacking filename or search-field editing;
 - terminal apps get raw Ctrl sequences and `Ctrl+Shift+C/V/N/T/W`;
 - listed remote desktop/VM clients receive physical Ctrl and Windows modifiers natively;
 - `Win+Left/Right/Up/Down` uses native macOS 15+ window tiling.

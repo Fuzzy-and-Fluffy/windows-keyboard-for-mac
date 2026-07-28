@@ -60,6 +60,58 @@ jq -e '
   ] | length) == 2
 ' dist/windows-keyboard-for-mac-profile.json >/dev/null
 
+jq -e '
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 03] Finder: Windows Explorer behavior") |
+    .manipulators[] |
+    select(
+      .from.key_code == "delete_or_backspace" and
+      .to == [{"key_code": "open_bracket", "modifiers": ["left_command"]}]
+    ) |
+    .conditions |
+    (
+      ([.[] |
+        select(
+          .type == "variable_unless" and
+          .name == "accessibility.focused_ui_element.role_string" and
+          .value == 0
+        )
+      ] | length) == 1 and
+      ([.[] |
+        select(
+          .type == "variable_unless" and
+          .name == "accessibility.focused_ui_element.role_string" and
+          .value == ""
+        )
+      ] | length) == 1 and
+      ([.[] |
+        select(
+          .type == "expression_unless" and
+          .expression == "accessibility.focused_ui_element.role_string like '\''AXText*'\''"
+        )
+      ] | length) == 1
+    )
+  ] | length) == 1 and
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 03] Finder: Windows Explorer behavior") |
+    .manipulators[] |
+    select(
+      (.from.key_code == "x" or
+       .from.key_code == "v" or
+       .from.key_code == "f2" or
+       .from.key_code == "return_or_enter" or
+       .from.key_code == "delete_forward" or
+       .from.key_code == "delete_or_backspace") and
+      ([.conditions[] |
+        select(
+          .type == "expression_unless" and
+          .expression == "accessibility.focused_ui_element.role_string like '\''AXText*'\''"
+        )
+      ] | length) == 1
+    )
+  ] | length) == 8
+' dist/windows-keyboard-for-mac-profile.json >/dev/null
+
 jq '{title: "Windows Keyboard for Mac", rules: .complex_modifications.rules}' \
   dist/windows-keyboard-for-mac-profile.json > "$TEMP_DIR/complex-modifications.json"
 
@@ -178,5 +230,33 @@ jq -e '
   ([.profiles[] | select(.name == "Original" and .selected == true)] | length) == 1
 ' "$TEMP_DIR/karabiner.json" >/dev/null
 /usr/bin/grep -q 'restored automatically' "$TEMP_DIR/failed-install-output.txt"
+
+export WINDOWS_KEYBOARD_FOR_MAC_FAKE_VERSION=15.9.0
+if ./install.command \
+  --non-interactive \
+  --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
+  --config "$TEMP_DIR/karabiner.json" \
+  --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
+  --device 1000:2000 > "$TEMP_DIR/old-version-output.txt" 2>&1; then
+  print -u2 -r -- "Expected Karabiner-Elements 15 to be rejected."
+  exit 1
+fi
+/usr/bin/grep -q 'Karabiner-Elements 16 or newer is required' \
+  "$TEMP_DIR/old-version-output.txt"
+
+./doctor.command \
+  --non-interactive \
+  --config "$TEMP_DIR/karabiner.json" \
+  --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
+  --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
+  > "$TEMP_DIR/old-version-doctor.json"
+
+jq -e '
+  .healthy == false and
+  any(.issues[]; contains("Karabiner-Elements 16 or newer is required"))
+' "$TEMP_DIR/old-version-doctor.json" >/dev/null
+unset WINDOWS_KEYBOARD_FOR_MAC_FAKE_VERSION
 
 print -r -- "Windows Keyboard for Mac tests passed."

@@ -7,6 +7,7 @@ var PROFILE_NAME = "Windows Keyboard for Mac";
 var PLACEHOLDER_DESCRIPTION = "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__";
 var INPUT_SOURCE_DESCRIPTION =
   "Win+Space switches the macOS input source using the shortcut discovered during installation.";
+var MINIMUM_KARABINER_MAJOR = 16;
 var DEFAULT_CLI =
   "/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli";
 
@@ -802,8 +803,13 @@ function install(options) {
 
   var version = runTask(options.cli, ["--version"], false).stdout.trim();
   var majorVersion = Number(version.split(".")[0]);
-  if (!isFinite(majorVersion) || majorVersion < 15) {
-    throw new Error("Karabiner-Elements 15 or newer is required; found " + version);
+  if (!isFinite(majorVersion) || majorVersion < MINIMUM_KARABINER_MAJOR) {
+    throw new Error(
+      "Karabiner-Elements " +
+        MINIMUM_KARABINER_MAJOR +
+        " or newer is required; found " +
+        version
+    );
   }
   var macosVersion = runTask(
     "/usr/bin/sw_vers",
@@ -1023,6 +1029,21 @@ function doctor(options) {
     ["--version"],
     false
   ).stdout.trim();
+  var karabinerMajorVersion = Number(
+    report.karabiner_version.split(".")[0]
+  );
+  if (
+    !isFinite(karabinerMajorVersion) ||
+    karabinerMajorVersion < MINIMUM_KARABINER_MAJOR
+  ) {
+    report.issues.push(
+      "Karabiner-Elements " +
+        MINIMUM_KARABINER_MAJOR +
+        " or newer is required; found " +
+        report.karabiner_version +
+        "."
+    );
+  }
   report.live_profile = runTask(
     options.cli,
     ["--show-current-profile-name"],

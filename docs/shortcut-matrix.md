@@ -100,11 +100,15 @@ directly and therefore do not depend on that Mac's Spotlight shortcut.
 |---|---|
 | Ctrl+X, then Ctrl+V | Move selected files |
 | Ctrl+C / Ctrl+V | Copy / paste |
-| Enter | Open selected item |
+| Enter | Open selected item; accept the edit while renaming |
 | F2 | Rename selected item |
-| Delete | Move to Trash |
-| Shift+Delete | Request immediate deletion |
-| Backspace | Navigate back |
+| Delete | Move to Trash; delete the next character while editing text |
+| Shift+Delete | Request immediate deletion; edit normally in a text field |
+| Backspace | Navigate back; delete the previous character while editing text |
+
+Finder file actions activate only when Karabiner-Elements detects a focused
+non-text control. Filename, search, and other Finder text fields retain normal
+editing behavior.
 
 ## Terminals
 

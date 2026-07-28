@@ -3483,6 +3483,20 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
             "description": "Ctrl+X marks selected Finder items for moving."
@@ -3534,6 +3548,20 @@
                 ]
               },
               {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
+              },
+              {
                 "type": "variable_if",
                 "name": "windows_keyboard_for_mac_finder_cut",
                 "value": 1
@@ -3582,6 +3610,20 @@
               },
               {
                 "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
+              },
+              {
+                "type": "variable_unless",
                 "name": "windows_keyboard_for_mac_finder_cut",
                 "value": 1
               }
@@ -3620,6 +3662,20 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
             "description": "F2 renames the selected item."
@@ -3659,9 +3715,23 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
-            "description": "Enter opens the selected item."
+            "description": "Enter opens the selected item only when Finder is not editing text."
           },
           {
             "type": "basic",
@@ -3702,6 +3772,20 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
             "description": "Shift+Delete requests immediate deletion."
@@ -3741,6 +3825,20 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
             "description": "Delete moves the selected item to Trash."
@@ -3780,9 +3878,23 @@
                 "bundle_identifiers": [
                   "^com\\.apple\\.finder$"
                 ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": 0
+              },
+              {
+                "type": "variable_unless",
+                "name": "accessibility.focused_ui_element.role_string",
+                "value": ""
+              },
+              {
+                "type": "expression_unless",
+                "expression": "accessibility.focused_ui_element.role_string like 'AXText*'"
               }
             ],
-            "description": "Backspace navigates back."
+            "description": "Backspace navigates back only when Finder is not editing text."
           }
         ]
       },
@@ -6358,6 +6470,6 @@
     "generated_by": "src/generate-profile.mjs",
     "target_placeholder_description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__",
     "minimum_macos_major": 15,
-    "minimum_karabiner_major": 15
+    "minimum_karabiner_major": 16
   }
 }

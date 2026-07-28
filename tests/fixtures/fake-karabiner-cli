@@ -5,7 +5,7 @@ STATE_PATH=${WINDOWS_KEYBOARD_FOR_MAC_FAKE_STATE:?WINDOWS_KEYBOARD_FOR_MAC_FAKE_
 
 case "${1:-}" in
   --version)
-    print -r -- "16.1.0"
+    print -r -- "${WINDOWS_KEYBOARD_FOR_MAC_FAKE_VERSION:-16.1.0}"
     ;;
   --list-connected-devices)
     print -r -- '[

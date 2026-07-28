@@ -64,6 +64,16 @@ modifier translation and reaches macOS as `Command+Space`. Users choose their
 own third-party app shortcuts after installation and should avoid combinations
 reserved by the shortcut matrix.
 
+## Finder text-editing boundary
+
+Finder item actions are enabled only when Karabiner-Elements can identify a
+focused non-text accessibility role. In filename, search, and other Finder text
+fields, the rules fail closed and the normal editing keys pass through.
+
+This keeps Windows-style item actions such as Enter, Delete, Shift+Delete, and
+Backspace from overriding text editing. The focused-role condition requires
+Karabiner-Elements 16 or newer and its macOS Accessibility permission.
+
 ## Transaction model
 
 Install:
