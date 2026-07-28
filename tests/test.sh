@@ -71,6 +71,7 @@ cp tests/fixtures/original-karabiner.jsonc "$TEMP_DIR/karabiner.json"
 ./install.command \
   --non-interactive \
   --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
   --config "$TEMP_DIR/karabiner.json" \
   --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
   --device 1000:2000 > "$TEMP_DIR/install-result.json"
@@ -107,6 +108,7 @@ rg -q '"Original"' "$BACKUP_PATH"
 ./add-keyboard.command \
   --non-interactive \
   --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
   --config "$TEMP_DIR/karabiner.json" \
   --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
   --device 3000:4000 > "$TEMP_DIR/add-keyboard-result.json"
@@ -130,7 +132,9 @@ jq -e '
   --non-interactive \
   --config "$TEMP_DIR/karabiner.json" \
   --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
-  --skip-system-checks > "$TEMP_DIR/doctor-result.json"
+  --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
+  > "$TEMP_DIR/doctor-result.json"
 
 jq -e '
   .healthy == true and
@@ -160,6 +164,7 @@ export WINDOWS_KEYBOARD_FOR_MAC_FAKE_FAIL_SELECT=1
 if ./install.command \
   --non-interactive \
   --skip-system-checks \
+  --test-input-source-shortcut "$ROOT_DIR/tests/fixtures/input-source-shortcut.json" \
   --config "$TEMP_DIR/karabiner.json" \
   --cli "$ROOT_DIR/tests/fixtures/fake-karabiner-cli" \
   --device 1000:2000 > "$TEMP_DIR/failed-install-output.txt" 2>&1; then

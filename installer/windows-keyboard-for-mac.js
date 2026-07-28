@@ -367,6 +367,22 @@ function shortcutEvent(shortcut) {
   return event;
 }
 
+function inputSourceShortcutForOptions(options) {
+  if (!options.testInputSourceShortcut) {
+    return readInputSourceShortcut();
+  }
+  var shortcut = readJson(options.testInputSourceShortcut);
+  if (
+    (shortcut.symbolic_hotkey_id !== 60 &&
+      shortcut.symbolic_hotkey_id !== 61) ||
+    typeof shortcut.key_code !== "string" ||
+    !Array.isArray(shortcut.modifiers)
+  ) {
+    throw new Error("Invalid test input-source shortcut fixture.");
+  }
+  return shortcut;
+}
+
 function configureInputSourceShortcut(profile, shortcut) {
   var matches = 0;
   profile.complex_modifications.rules.forEach(function (currentRule) {
@@ -394,7 +410,8 @@ function parseOptions(argv) {
     devices: [],
     nonInteractive: false,
     dryRun: false,
-    skipSystemChecks: false
+    skipSystemChecks: false,
+    testInputSourceShortcut: null
   };
 
   for (var index = 1; index < argv.length; index += 1) {
@@ -413,9 +430,16 @@ function parseOptions(argv) {
       options.dryRun = true;
     } else if (argument === "--skip-system-checks") {
       options.skipSystemChecks = true;
+    } else if (argument === "--test-input-source-shortcut") {
+      options.testInputSourceShortcut = argv[++index];
     } else {
       throw new Error("Unknown option: " + argument);
     }
+  }
+  if (options.testInputSourceShortcut && !options.skipSystemChecks) {
+    throw new Error(
+      "--test-input-source-shortcut requires --skip-system-checks."
+    );
   }
   return options;
 }
@@ -802,7 +826,7 @@ function install(options) {
     addedTargets
   );
   verifyNoSystemLayerConflicts(targets, options.skipSystemChecks);
-  var inputSourceShortcut = readInputSourceShortcut();
+  var inputSourceShortcut = inputSourceShortcutForOptions(options);
   var profile = buildProfile(options.template, targets, inputSourceShortcut);
   validateInstalledProfile(profile, targets, inputSourceShortcut);
 
@@ -1040,7 +1064,7 @@ function doctor(options) {
         }
       });
       try {
-        var inputSourceShortcut = readInputSourceShortcut();
+        var inputSourceShortcut = inputSourceShortcutForOptions(options);
         report.input_source_shortcut = inputSourceShortcut;
         validateInstalledProfile(
           bridge,
