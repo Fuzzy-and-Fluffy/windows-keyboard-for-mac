@@ -51,8 +51,13 @@ Check at least:
 - `Ctrl+C` and `Ctrl+V`
 - `Ctrl+Z`
 - `Alt+Tab`
+- `Alt+F4` in Finder and a browser
 - `Win+Space`
 - `Ctrl+Shift+4`
+
+The first Finder `Alt+F4` may show a macOS Automation prompt asking whether
+Karabiner-Elements can control Finder. Approve it to enable exact Windows-style
+window closing in Finder; the mapping does not read Finder content.
 
 Mac shortcut symbols translate as follows:
 

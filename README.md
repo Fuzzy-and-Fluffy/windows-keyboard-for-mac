@@ -110,10 +110,12 @@ Highlights:
 
 - common Windows `Ctrl` editing shortcuts work automatically;
 - physical `Win+Space` switches input source;
-- the public profile contains no app-specific `Ctrl+Space` exception—physical `Ctrl+Space` follows the normal `Ctrl` → `Command` translation;
+- physical `Ctrl+Space` remains native `Control+Space` for an app shortcut chosen by the user, while `Win+Space` remains input-source switching;
 - `Ctrl+Shift+3/4/5` invoke the corresponding macOS screenshot shortcuts;
 - `Win+Shift+S` captures a selected area;
-- `Alt+Tab`, `Alt+F4`, Windows-style Home/End, Ctrl+Arrow and word deletion are translated;
+- `Alt+Tab` switches apps, while `Alt+F4` closes the active top-level browser or Finder window instead of merely closing its current tab;
+- the selected Windows keyboard keeps `F1` through `F12` as standard function keys even when macOS media-key mode is enabled;
+- Windows-style Home/End, Ctrl+Arrow and word deletion are translated;
 - Finder gets Windows-style cut/move, Enter, F2, Delete, Shift+Delete and Backspace behavior without hijacking filename or search-field editing;
 - terminal apps get raw Ctrl sequences and `Ctrl+Shift+C/V/N/T/W`;
 - listed remote desktop/VM clients receive physical Ctrl and Windows modifiers natively;

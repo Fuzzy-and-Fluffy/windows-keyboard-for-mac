@@ -4781,6 +4781,54 @@
           {
             "type": "basic",
             "from": {
+              "key_code": "spacebar",
+              "modifiers": {
+                "mandatory": [
+                  "command"
+                ],
+                "optional": [
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "spacebar",
+                "modifiers": [
+                  "left_control"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "frontmost_application_unless",
+                "bundle_identifiers": [
+                  "^com\\.microsoft\\.rdc\\.macos$",
+                  "^com\\.microsoft\\.windowsapp$",
+                  "^com\\.jumpdesktop\\.JumpDesktop$",
+                  "^com\\.citrix\\.XenAppViewer$",
+                  "^com\\.parallels\\.desktop\\.console$",
+                  "^com\\.vmware\\.fusion$",
+                  "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                ]
+              }
+            ],
+            "description": "Ctrl+Space remains native Control+Space for a user-selected app shortcut."
+          },
+          {
+            "type": "basic",
+            "from": {
               "key_code": "y",
               "modifiers": {
                 "mandatory": [
@@ -5072,8 +5120,95 @@
         ]
       },
       {
-        "description": "[Windows Keyboard for Mac 06] Browser compatibility",
+        "description": "[Windows Keyboard for Mac 06] Browser and Finder window compatibility",
         "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f4",
+              "modifiers": {
+                "mandatory": [
+                  "option"
+                ],
+                "optional": [
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "w",
+                "modifiers": [
+                  "left_command",
+                  "left_shift"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.apple\\.Safari$",
+                  "^com\\.brave\\.Browser$",
+                  "^com\\.google\\.Chrome",
+                  "^com\\.microsoft\\.edgemac$",
+                  "^com\\.operasoftware\\.Opera",
+                  "^org\\.mozilla\\.firefox"
+                ]
+              }
+            ],
+            "description": "Alt+F4 closes the current browser window, not just its active tab."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f4",
+              "modifiers": {
+                "mandatory": [
+                  "option"
+                ],
+                "optional": [
+                  "caps_lock"
+                ]
+              }
+            },
+            "to": [
+              {
+                "shell_command": "/usr/bin/osascript -e 'tell application id \"com.apple.finder\"' -e 'if (count of Finder windows) > 0 then close front Finder window' -e 'end tell'"
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "frontmost_application_if",
+                "bundle_identifiers": [
+                  "^com\\.apple\\.finder$"
+                ]
+              }
+            ],
+            "description": "Alt+F4 closes the front Finder window regardless of its tab count."
+          },
           {
             "type": "basic",
             "from": {
@@ -5284,7 +5419,7 @@
             },
             "to": [
               {
-                "key_code": "q",
+                "key_code": "w",
                 "modifiers": [
                   "left_command"
                 ]
@@ -5305,6 +5440,18 @@
               {
                 "type": "frontmost_application_unless",
                 "bundle_identifiers": [
+                  "^com\\.apple\\.Safari$",
+                  "^com\\.brave\\.Browser$",
+                  "^com\\.google\\.Chrome",
+                  "^com\\.microsoft\\.edgemac$",
+                  "^com\\.operasoftware\\.Opera",
+                  "^org\\.mozilla\\.firefox",
+                  "^com\\.apple\\.finder$"
+                ]
+              },
+              {
+                "type": "frontmost_application_unless",
+                "bundle_identifiers": [
                   "^com\\.microsoft\\.rdc\\.macos$",
                   "^com\\.microsoft\\.windowsapp$",
                   "^com\\.jumpdesktop\\.JumpDesktop$",
@@ -5315,7 +5462,7 @@
                 ]
               }
             ],
-            "description": "Alt+F4 quits the active app."
+            "description": "Alt+F4 closes the active window in other apps."
           },
           {
             "type": "basic",
@@ -6460,6 +6607,467 @@
               }
             ],
             "description": "Ctrl+Alt+Delete locks the Mac."
+          }
+        ]
+      },
+      {
+        "description": "[Windows Keyboard for Mac 10] Function keys: keep F1-F12 standard on selected Windows keyboards",
+        "manipulators": [
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f1",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f1",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F1 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f2",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f2",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F2 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f3",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f3",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F3 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f4",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f4",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F4 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f5",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f5",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F5 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f6",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f6",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F6 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f7",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f7",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F7 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f8",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f8",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F8 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f9",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f9",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F9 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f10",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f10",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F10 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f11",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f11",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F11 remains a standard function key when macOS media-key mode is enabled."
+          },
+          {
+            "type": "basic",
+            "from": {
+              "key_code": "f12",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            },
+            "to": [
+              {
+                "key_code": "f12",
+                "modifiers": [
+                  "fn"
+                ]
+              }
+            ],
+            "conditions": [
+              {
+                "type": "device_if",
+                "identifiers": [
+                  {
+                    "vendor_id": 0,
+                    "product_id": 0,
+                    "is_keyboard": true,
+                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
+                  }
+                ]
+              },
+              {
+                "type": "variable_unless",
+                "name": "system.use_fkeys_as_standard_function_keys",
+                "value": true
+              }
+            ],
+            "description": "F12 remains a standard function key when macOS media-key mode is enabled."
           }
         ]
       }

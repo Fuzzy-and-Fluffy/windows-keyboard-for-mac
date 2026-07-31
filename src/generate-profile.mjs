@@ -28,6 +28,14 @@ const browserBundles = [
   "^org\\.mozilla\\.firefox"
 ];
 
+const appSpecificCloseWindowBundles = [
+  ...browserBundles,
+  "^com\\.apple\\.finder$"
+];
+
+const closeFrontFinderWindowCommand =
+  "/usr/bin/osascript -e 'tell application id \"com.apple.finder\"' -e 'if (count of Finder windows) > 0 then close front Finder window' -e 'end tell'";
+
 const remoteBundles = [
   "^com\\.microsoft\\.rdc\\.macos$",
   "^com\\.microsoft\\.windowsapp$",
@@ -106,6 +114,10 @@ function toOpenApplication(bundleIdentifier) {
   };
 }
 
+function toShellCommand(shellCommand) {
+  return { shell_command: shellCommand };
+}
+
 function setVariable(name, value) {
   return {
     set_variable: {
@@ -147,6 +159,7 @@ const remoteIf = appIf(remoteBundles);
 const remoteUnless = appUnless(remoteBundles);
 const terminalIf = appIf(terminalBundles);
 const browserIf = appIf(browserBundles);
+const appSpecificCloseWindowUnless = appUnless(appSpecificCloseWindowBundles);
 const finderIf = appIf(["^com\\.apple\\.finder$"]);
 const finderItemIf = [
   finderIf,
@@ -398,6 +411,13 @@ rules.push(
 rules.push(
   rule("[Windows Keyboard for Mac 05] Editing and tab exceptions", [
     manipulator({
+      key: "spacebar",
+      mandatory: ["command"],
+      to: [toKey("spacebar", ["left_control"])],
+      conditions: [remoteUnless],
+      description: "Ctrl+Space remains native Control+Space for a user-selected app shortcut."
+    }),
+    manipulator({
       key: "y",
       mandatory: ["command"],
       to: [toKey("z", ["left_command", "left_shift"])],
@@ -443,7 +463,21 @@ rules.push(
 );
 
 rules.push(
-  rule("[Windows Keyboard for Mac 06] Browser compatibility", [
+  rule("[Windows Keyboard for Mac 06] Browser and Finder window compatibility", [
+    manipulator({
+      key: "f4",
+      mandatory: ["option"],
+      to: [toKey("w", ["left_command", "left_shift"])],
+      conditions: [browserIf],
+      description: "Alt+F4 closes the current browser window, not just its active tab."
+    }),
+    manipulator({
+      key: "f4",
+      mandatory: ["option"],
+      to: [toShellCommand(closeFrontFinderWindowCommand)],
+      conditions: [finderIf],
+      description: "Alt+F4 closes the front Finder window regardless of its tab count."
+    }),
     manipulator({
       key: "f5",
       to: [toKey("r", ["left_command"])],
@@ -479,9 +513,9 @@ rules.push(
     manipulator({
       key: "f4",
       mandatory: ["option"],
-      to: [toKey("q", ["left_command"])],
-      conditions: [remoteUnless],
-      description: "Alt+F4 quits the active app."
+      to: [toKey("w", ["left_command"])],
+      conditions: [appSpecificCloseWindowUnless, remoteUnless],
+      description: "Alt+F4 closes the active window in other apps."
     }),
     manipulator({
       key: "left_arrow",
@@ -658,6 +692,24 @@ rules.push(
       description: "Ctrl+Alt+Delete locks the Mac."
     })
   ])
+);
+
+rules.push(
+  rule(
+    "[Windows Keyboard for Mac 10] Function keys: keep F1-F12 standard on selected Windows keyboards",
+    Array.from({ length: 12 }, (_, index) => {
+      const key = `f${index + 1}`;
+      return manipulator({
+        key,
+        optional: ["any"],
+        to: [toKey(key, ["fn"])],
+        conditions: [
+          variableUnless("system.use_fkeys_as_standard_function_keys", true)
+        ],
+        description: `${key.toUpperCase()} remains a standard function key when macOS media-key mode is enabled.`
+      });
+    })
+  )
 );
 
 const profile = {

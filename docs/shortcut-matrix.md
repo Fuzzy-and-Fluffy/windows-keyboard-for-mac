@@ -45,7 +45,7 @@ Because physical Ctrl becomes Command before complex rules are evaluated, these 
 | Ctrl+Shift+3 | Command+Shift+3 | Full-screen screenshot |
 | Ctrl+Shift+4 | Command+Shift+4 | Selected-area screenshot |
 | Ctrl+Shift+5 | Command+Shift+5 | Screenshot and recording controls |
-| Ctrl+Space | Command+Space | Normal translated shortcut; not reserved for a particular app |
+| Ctrl+Space | Control+Space | Native shortcut reserved for an app selected by the user |
 
 The final screenshot action still follows the macOS Screenshot shortcut settings. If those shortcuts were customized, the customized macOS action runs.
 
@@ -62,12 +62,27 @@ The final screenshot action still follows the macOS Screenshot shortcut settings
 | Home / End | Start / end of line |
 | Ctrl+Home / End | Start / end of document |
 | Alt+Tab / Alt+Shift+Tab | Switch apps forward / backward |
-| Alt+F4 | Quit active app |
+| Alt+F4 in Chrome, Edge, Safari, Firefox, Brave, or Opera | Close the current window, including all of its tabs (`Command+Shift+W`) |
+| Alt+F4 in Finder | Close the front Finder window regardless of its tab count |
+| Alt+F4 in other apps | Close the front window (`Command+W`) |
 | Alt+Left / Right | Navigate back / forward |
 | Ctrl+Shift+Esc | Force Quit window |
 | Ctrl+Alt+Delete | Lock screen |
 | Print Screen | Full-screen screenshot |
 | Alt+Print Screen | Window screenshot |
+
+This preserves the Windows distinction between `Alt+F4` and `Ctrl+F4`:
+`Alt+F4` closes the active top-level window, while `Ctrl+F4` closes only the
+active document or tab. Closing a macOS window does not quit the app.
+The first Finder use may ask for macOS Automation permission so
+Karabiner-Elements can control Finder.
+
+## Function keys
+
+On selected Windows keyboards, physical `F1` through `F12` remain standard
+function keys even when macOS is configured to use that row for brightness,
+media, and other special features. Explicit rules such as `Alt+F4`, `Ctrl+F4`,
+Finder `F2`, and browser `F5` take priority.
 
 ## Windows-key shortcuts
 
