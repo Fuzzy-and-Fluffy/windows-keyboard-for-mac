@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101f"/>
+      <stop offset="0.58" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#111b31"/>
+    </linearGradient>
+    <linearGradient id="keyAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="keyNeutral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26354d"/>
+      <stop offset="1" stop-color="#162238"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity="0.55"/>
+    </filter>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="1030" cy="110" r="300" fill="url(#glow)"/>
+  <circle cx="150" cy="640" r="260" fill="url(#glow)" opacity="0.55"/>
+  <rect x="31" y="26" width="1138" height="603" rx="30" fill="none" stroke="#20304a" stroke-width="2"/>
+  <text x="64" y="72" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="800" text-anchor="start" letter-spacing="2.2" opacity="1">WINDOWS KEYBOARD FOR MAC</text>
+  <text x="1136" y="72" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1.4" opacity="1">SHORTCUT WALKTHROUGH</text>
+
+    <text x="64" y="145" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="800" text-anchor="start" letter-spacing="0" opacity="1">Real function keys. Real terminal control.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="64" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 74 229 H 122" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="98" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F1</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="150" y="190" width="68" height="48" rx="12" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 160 229 H 208" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="184" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F2</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="236" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 246 229 H 294" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="270" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F3</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="322" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 332 229 H 380" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="356" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F4</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="408" y="190" width="68" height="48" rx="12" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 418 229 H 466" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="442" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F5</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="494" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 504 229 H 552" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="528" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F6</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="580" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 590 229 H 638" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="614" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F7</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="666" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 676 229 H 724" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="700" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F8</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="752" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 762 229 H 810" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="786" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F9</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="838" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 848 229 H 896" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="872" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F10</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="924" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 934 229 H 982" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="958" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F11</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="1010" y="190" width="68" height="48" rx="12" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 1020 229 H 1068" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="1044" y="221" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F12</text>
+    </g>
+    <text x="64" y="286" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">F1–F12 stay standard when macOS media-key mode is enabled.</text>
+    <g filter="url(#shadow)">
+      <rect x="64" y="334" width="660" height="208" rx="22" fill="#050b14" stroke="#263854" stroke-width="2"/>
+      <circle cx="94" cy="363" r="6" fill="#fb7185"/><circle cx="115" cy="363" r="6" fill="#fbbf24"/><circle cx="136" cy="363" r="6" fill="#4ade80"/>
+      <text x="96" y="414" fill="#d1fae5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="600" text-anchor="start" letter-spacing="0" opacity="1">$ sleep 30</text>
+      <text x="96" y="455" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Ctrl+C</text>
+      <text x="211" y="455" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">→</text>
+      <text x="250" y="455" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">^C  interrupt</text>
+      <text x="96" y="500" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Ctrl+Shift+C</text>
+      <text x="267" y="500" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">→</text>
+      <text x="306" y="500" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">Copy</text>
+    </g>
+    <g>
+      <rect x="766" y="334" width="344" height="208" rx="22" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <text x="800" y="382" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="800" text-anchor="start" letter-spacing="1.6" opacity="1">PRIORITY RULES</text>
+      <text x="800" y="430" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">Finder F2</text><text x="1028" y="430" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500" text-anchor="end" letter-spacing="0" opacity="1">Rename</text>
+      <text x="800" y="472" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">Browser F5</text><text x="1028" y="472" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500" text-anchor="end" letter-spacing="0" opacity="1">Reload</text>
+      <text x="800" y="514" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">Alt+F4</text><text x="1028" y="514" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500" text-anchor="end" letter-spacing="0" opacity="1">Close window</text>
+    </g>
+  <text x="64" y="606" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">Physical keys shown · Selected Windows keyboards only</text>
+  <rect x="527" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="554" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="581" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="608" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="635" y="626" width="20" height="8" rx="4" fill="#60a5fa"/><rect x="662" y="626" width="8" height="8" rx="4" fill="#334155"/>
+</svg>

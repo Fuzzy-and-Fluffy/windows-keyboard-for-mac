@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101f"/>
+      <stop offset="0.58" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#111b31"/>
+    </linearGradient>
+    <linearGradient id="keyAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="keyNeutral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26354d"/>
+      <stop offset="1" stop-color="#162238"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity="0.55"/>
+    </filter>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="1030" cy="110" r="300" fill="url(#glow)"/>
+  <circle cx="150" cy="640" r="260" fill="url(#glow)" opacity="0.55"/>
+  <rect x="31" y="26" width="1138" height="603" rx="30" fill="none" stroke="#20304a" stroke-width="2"/>
+  <text x="64" y="72" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="800" text-anchor="start" letter-spacing="2.2" opacity="1">WINDOWS KEYBOARD FOR MAC</text>
+  <text x="1136" y="72" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1.4" opacity="1">SHORTCUT WALKTHROUGH</text>
+
+    <text x="64" y="145" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="40" font-weight="800" text-anchor="start" letter-spacing="0" opacity="1">Built to be reversible</text>
+
+    <g>
+      <rect x="64" y="196" width="500" height="104" rx="20" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <rect x="64" y="196" width="7" height="104" rx="4" fill="#3b82f6"/>
+      <text x="94" y="234" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">BACKUP</text>
+      <text x="94" y="270" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Preserve the existing configuration</text>
+    </g>
+
+    <g>
+      <rect x="64" y="318" width="500" height="104" rx="20" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <rect x="64" y="318" width="7" height="104" rx="4" fill="#8b5cf6"/>
+      <text x="94" y="356" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">DOCTOR</text>
+      <text x="94" y="392" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Verify the live profile and conflicts</text>
+    </g>
+
+    <g>
+      <rect x="586" y="196" width="524" height="104" rx="20" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <rect x="586" y="196" width="7" height="104" rx="4" fill="#14b8a6"/>
+      <text x="616" y="234" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">UNINSTALL</text>
+      <text x="616" y="270" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Restore the previous Karabiner profile</text>
+    </g>
+
+    <g>
+      <rect x="586" y="318" width="524" height="104" rx="20" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <rect x="586" y="318" width="7" height="104" rx="4" fill="#f59e0b"/>
+      <text x="616" y="356" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="650" text-anchor="start" letter-spacing="0" opacity="1">PRIVACY</text>
+      <text x="616" y="392" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">No telemetry · no account · MIT licensed</text>
+    </g>
+    <text x="600" y="497" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="650" text-anchor="middle" letter-spacing="0" opacity="1">github.com/Fuzzy-and-Fluffy/</text>
+    <text x="600" y="532" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="31" font-weight="800" text-anchor="middle" letter-spacing="0" opacity="1">windows-keyboard-for-mac</text>
+    <text x="600" y="570" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" text-anchor="middle" letter-spacing="0" opacity="1">macOS 15+  ·  Karabiner-Elements 16+</text>
+  <text x="64" y="606" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">Physical keys shown · Selected Windows keyboards only</text>
+  <rect x="527" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="554" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="581" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="608" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="635" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="662" y="626" width="20" height="8" rx="4" fill="#60a5fa"/>
+</svg>

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.1 — 2026-07-31
+
+- Slowed the visual walkthrough from 16 seconds to 49 seconds, keeping each
+  scene visible for 7–9 seconds.
+- Added an interactive demo with previous, next, play/pause, slide-picker, and
+  keyboard controls.
+- Paused automatic rotation when a visitor starts interacting with the demo
+  and disabled autoplay when reduced motion is preferred.
+- Added descriptive alternative text and screen-reader announcements for
+  manual slide changes.
+
 ## 0.3.0 — 2026-07-31
 
 - Changed `Alt+F4` from quitting the active macOS app to closing the active

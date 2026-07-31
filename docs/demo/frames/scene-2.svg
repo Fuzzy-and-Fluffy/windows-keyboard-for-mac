@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101f"/>
+      <stop offset="0.58" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#111b31"/>
+    </linearGradient>
+    <linearGradient id="keyAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="keyNeutral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26354d"/>
+      <stop offset="1" stop-color="#162238"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity="0.55"/>
+    </filter>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="1030" cy="110" r="300" fill="url(#glow)"/>
+  <circle cx="150" cy="640" r="260" fill="url(#glow)" opacity="0.55"/>
+  <rect x="31" y="26" width="1138" height="603" rx="30" fill="none" stroke="#20304a" stroke-width="2"/>
+  <text x="64" y="72" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="800" text-anchor="start" letter-spacing="2.2" opacity="1">WINDOWS KEYBOARD FOR MAC</text>
+  <text x="1136" y="72" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1.4" opacity="1">SHORTCUT WALKTHROUGH</text>
+
+    <text x="64" y="145" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="800" text-anchor="start" letter-spacing="0" opacity="1">The everyday shortcuts stay familiar</text>
+
+    <g filter="url(#shadow)">
+      <rect x="78" y="205" width="96" height="66" rx="15" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 88 262 H 164" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="126" y="246" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Ctrl</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="188" y="205" width="96" height="66" rx="15" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 198 262 H 274" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="236" y="246" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">C</text>
+    </g><g stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 307 238 H 402"/><path d="M 389 227 L 402 238 L 389 249"/></g>
+    <text x="438" y="231" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Copy</text><text x="438" y="261" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500" text-anchor="start" letter-spacing="0" opacity="1">macOS Command+C</text>
+
+    <g filter="url(#shadow)">
+      <rect x="78" y="310" width="96" height="66" rx="15" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 88 367 H 164" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="126" y="351" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Ctrl</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="188" y="310" width="96" height="66" rx="15" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 198 367 H 274" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="236" y="351" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">V</text>
+    </g><g stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 307 343 H 402"/><path d="M 389 332 L 402 343 L 389 354"/></g>
+    <text x="438" y="336" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Paste</text><text x="438" y="366" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500" text-anchor="start" letter-spacing="0" opacity="1">macOS Command+V</text>
+
+    <g filter="url(#shadow)">
+      <rect x="78" y="415" width="96" height="66" rx="15" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 88 472 H 164" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="126" y="456" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Win</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="188" y="415" width="118" height="66" rx="15" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 198 472 H 296" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="247" y="456" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Space</text>
+    </g><g stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 325 448 H 402"/><path d="M 389 437 L 402 448 L 389 459"/></g>
+    <text x="438" y="441" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Switch input source</text><text x="438" y="471" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500" text-anchor="start" letter-spacing="0" opacity="1">Uses this Mac's input-source shortcut</text>
+    <g>
+      <rect x="720" y="202" width="390" height="282" rx="26" fill="#101b31" stroke="#263854" stroke-width="2"/>
+      <text x="754" y="250" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="800" text-anchor="start" letter-spacing="1.8" opacity="1">DEVICE ISOLATION</text>
+      <text x="754" y="306" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">External Windows keyboard</text>
+      <rect x="754" y="330" width="322" height="52" rx="15" fill="#102d57" stroke="#2563eb" stroke-width="2"/>
+      <text x="915" y="363" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="750" text-anchor="middle" letter-spacing="0" opacity="1">Windows mode: ON</text>
+      <text x="754" y="426" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">Built-in Apple keyboard</text>
+      <text x="754" y="459" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="600" text-anchor="start" letter-spacing="0" opacity="1">Unchanged</text>
+    </g>
+  <text x="64" y="606" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">Physical keys shown · Selected Windows keyboards only</text>
+  <rect x="527" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="554" y="626" width="20" height="8" rx="4" fill="#60a5fa"/><rect x="581" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="608" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="635" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="662" y="626" width="8" height="8" rx="4" fill="#334155"/>
+</svg>

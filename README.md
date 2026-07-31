@@ -7,7 +7,11 @@ MacBook keyboard.**
 [![CI](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/actions/workflows/ci.yml/badge.svg)](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb.svg)](./LICENSE)
 
-![Windows Keyboard for Mac shortcut walkthrough](./docs/assets/windows-keyboard-for-mac-demo.gif)
+[![Windows Keyboard for Mac shortcut walkthrough](./docs/assets/windows-keyboard-for-mac-demo.gif)](https://fuzzy-and-fluffy.github.io/windows-keyboard-for-mac/demo/)
+
+**[Open the interactive demo](https://fuzzy-and-fluffy.github.io/windows-keyboard-for-mac/demo/)**
+to pause, move to the previous or next scene, or use the arrow keys. The GIF
+keeps each scene visible for 7–9 seconds.
 
 Windows Keyboard for Mac is a free, open-source Karabiner-Elements profile and
 reversible installer. It gives selected external Windows keyboards familiar

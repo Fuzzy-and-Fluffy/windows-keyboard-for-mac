@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101f"/>
+      <stop offset="0.58" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#111b31"/>
+    </linearGradient>
+    <linearGradient id="keyAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="keyNeutral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26354d"/>
+      <stop offset="1" stop-color="#162238"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity="0.55"/>
+    </filter>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="1030" cy="110" r="300" fill="url(#glow)"/>
+  <circle cx="150" cy="640" r="260" fill="url(#glow)" opacity="0.55"/>
+  <rect x="31" y="26" width="1138" height="603" rx="30" fill="none" stroke="#20304a" stroke-width="2"/>
+  <text x="64" y="72" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="800" text-anchor="start" letter-spacing="2.2" opacity="1">WINDOWS KEYBOARD FOR MAC</text>
+  <text x="1136" y="72" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1.4" opacity="1">SHORTCUT WALKTHROUGH</text>
+
+    <text x="64" y="164" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="51" font-weight="800" text-anchor="start" letter-spacing="0" opacity="1">Windows muscle memory.</text>
+    <text x="64" y="222" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="51" font-weight="800" text-anchor="start" letter-spacing="0" opacity="1">On your Mac.</text>
+    <text x="66" y="274" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="500" text-anchor="start" letter-spacing="0" opacity="1">Familiar shortcuts on the keyboards you choose—</text>
+    <text x="66" y="307" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="500" text-anchor="start" letter-spacing="0" opacity="1">without changing the built-in Apple keyboard.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="66" y="365" width="96" height="66" rx="15" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 76 422 H 152" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="114" y="406" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Ctrl</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="178" y="365" width="96" height="66" rx="15" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 188 422 H 264" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="226" y="406" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Win</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="290" y="365" width="96" height="66" rx="15" fill="url(#keyAccent)" stroke="#60a5fa" stroke-width="2"/>
+      <path d="M 300 422 H 376" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="338" y="406" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">Alt</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="402" y="365" width="96" height="66" rx="15" fill="url(#keyNeutral)" stroke="#475569" stroke-width="2"/>
+      <path d="M 412 422 H 488" stroke="#1e293b" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="450" y="406" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" font-weight="700" text-anchor="middle" letter-spacing="0" opacity="1">F4</text>
+    </g>
+    <g stroke="#60a5fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 526 398 H 626"/><path d="M 613 387 L 626 398 L 613 409"/></g>
+    <g filter="url(#shadow)">
+      <rect x="662" y="339" width="438" height="156" rx="25" fill="#101b31" stroke="#2f4770" stroke-width="2"/>
+      <text x="696" y="386" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700" text-anchor="start" letter-spacing="0" opacity="1">Familiar behavior</text>
+      <text x="696" y="429" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="27" font-weight="750" text-anchor="start" letter-spacing="0" opacity="1">Device-scoped · reversible</text>
+      <text x="696" y="465" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">Free · open source · no telemetry</text>
+    </g>
+  <text x="64" y="606" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="550" text-anchor="start" letter-spacing="0" opacity="1">Physical keys shown · Selected Windows keyboards only</text>
+  <rect x="527" y="626" width="20" height="8" rx="4" fill="#60a5fa"/><rect x="554" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="581" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="608" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="635" y="626" width="8" height="8" rx="4" fill="#334155"/><rect x="662" y="626" width="8" height="8" rx="4" fill="#334155"/>
+</svg>

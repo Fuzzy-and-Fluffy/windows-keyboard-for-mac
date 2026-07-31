@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta
+      name="description"
+      content="An interactive walkthrough of Windows Keyboard for Mac shortcuts."
+    >
+    <title>Interactive Demo · Windows Keyboard for Mac</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #050b15;
+        color: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 80% 0%, rgb(37 99 235 / 18%), transparent 34rem),
+          linear-gradient(145deg, #050b15, #0b1730 56%, #111b31);
+      }
+
+      a {
+        color: #93c5fd;
+      }
+
+      .page {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        padding: clamp(20px, 4vw, 52px);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #93c5fd;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+      }
+
+      .lede {
+        max-width: 780px;
+        margin: 16px 0 28px;
+        color: #cbd5e1;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.55;
+      }
+
+      .carousel {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid #29405f;
+        border-radius: 24px;
+        background: rgb(9 17 32 / 82%);
+        box-shadow: 0 30px 80px rgb(0 0 0 / 36%);
+      }
+
+      .viewport {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #07101f;
+      }
+
+      .viewport img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        border-top: 1px solid #20304a;
+      }
+
+      .button,
+      .dot {
+        appearance: none;
+        border: 1px solid #3d5271;
+        color: #f8fafc;
+        background: #162238;
+        cursor: pointer;
+      }
+
+      .button {
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 13px;
+        font: inherit;
+        font-weight: 750;
+      }
+
+      .button:hover {
+        border-color: #60a5fa;
+        background: #1d3150;
+      }
+
+      .button:focus-visible,
+      .dot:focus-visible,
+      a:focus-visible {
+        outline: 3px solid #93c5fd;
+        outline-offset: 3px;
+      }
+
+      .center-controls {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .dots {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: #475569;
+      }
+
+      .dot[aria-current="true"] {
+        width: 26px;
+        background: #60a5fa;
+      }
+
+      .count {
+        min-width: 64px;
+        color: #94a3b8;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+      }
+
+      .hint {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px 24px;
+        margin: 18px 4px 0;
+        color: #94a3b8;
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 720px) {
+        .controls {
+          grid-template-columns: 1fr 1fr;
+          min-width: 0;
+        }
+
+        .center-controls {
+          display: grid;
+          grid-column: 1 / -1;
+          grid-row: 1;
+          grid-template-columns: minmax(0, 1fr) auto;
+          width: 100%;
+        }
+
+        #rotation {
+          grid-column: 1 / -1;
+        }
+
+        .dots {
+          justify-self: end;
+        }
+
+        #previous {
+          grid-column: 1;
+        }
+
+        #next {
+          grid-column: 2;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">Windows Keyboard for Mac</p>
+      <h1>Explore at your own pace.</h1>
+      <p class="lede">
+        The automatic tour keeps each scene visible for eight seconds. Pause it,
+        move backward or forward, or jump straight to any scene.
+      </p>
+
+      <section
+        id="carousel"
+        class="carousel"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Shortcut walkthrough"
+      >
+        <div class="viewport" aria-live="off">
+          <img id="slide" src="./frames/scene-1.svg" width="1200" height="675" alt="">
+        </div>
+        <div class="controls">
+          <button id="previous" class="button" type="button">← Previous</button>
+          <div class="center-controls">
+            <button
+              id="rotation"
+              class="button"
+              type="button"
+              aria-label="Pause automatic slideshow"
+            >
+              Pause
+            </button>
+            <div id="dots" class="dots" role="group" aria-label="Choose a slide"></div>
+            <span id="count" class="count" aria-hidden="true">1 / 6</span>
+          </div>
+          <button id="next" class="button" type="button">Next →</button>
+        </div>
+        <p id="status" class="visually-hidden" aria-live="polite"></p>
+      </section>
+
+      <div class="hint">
+        <span>Keyboard: ← previous · → next · Space play/pause</span>
+        <span class="links">
+          <a href="https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac">GitHub project</a>
+          <a href="https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/blob/main/docs/quick-start.md">Quick start</a>
+        </span>
+      </div>
+    </main>
+
+    <script>
+      const slides = [
+        {
+          file: "scene-1.svg",
+          title: "Windows muscle memory on your Mac",
+          alt: "Windows Keyboard for Mac overview showing Ctrl, Windows, Alt, and F4 keys with device-scoped, reversible behavior."
+        },
+        {
+          file: "scene-2.svg",
+          title: "Everyday shortcuts",
+          alt: "Ctrl+C copies, Ctrl+V pastes, and Windows+Space switches input source on selected Windows keyboards while the built-in Apple keyboard remains unchanged."
+        },
+        {
+          file: "scene-3.svg",
+          title: "Close the current window",
+          alt: "Alt+F4 closes the active top-level browser, Finder, or macOS app window while Ctrl+F4 remains the close-document or close-tab shortcut."
+        },
+        {
+          file: "scene-4.svg",
+          title: "Windows-style Finder behavior",
+          alt: "Finder shortcuts: F2 renames, Backspace navigates back, and Delete moves the selected item to Trash while text fields keep normal editing behavior."
+        },
+        {
+          file: "scene-5.svg",
+          title: "Function keys and Terminal",
+          alt: "F1 through F12 remain standard function keys, Finder F2 renames, browser F5 reloads, Terminal Ctrl+C interrupts, and Ctrl+Shift+C copies."
+        },
+        {
+          file: "scene-6.svg",
+          title: "Reversible and private",
+          alt: "The installer backs up the existing configuration, provides diagnostics and uninstall, and has no telemetry or account requirement."
+        }
+      ];
+
+      const intervalMilliseconds = 8000;
+      const carousel = document.querySelector("#carousel");
+      const image = document.querySelector("#slide");
+      const previous = document.querySelector("#previous");
+      const next = document.querySelector("#next");
+      const rotation = document.querySelector("#rotation");
+      const dotsContainer = document.querySelector("#dots");
+      const count = document.querySelector("#count");
+      const status = document.querySelector("#status");
+      const query = new URLSearchParams(window.location.search);
+      const requestedSlide = Number.parseInt(query.get("slide") || "1", 10);
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let index = Number.isInteger(requestedSlide)
+        ? Math.min(Math.max(requestedSlide - 1, 0), slides.length - 1)
+        : 0;
+      let playing = query.get("autoplay") !== "0" && !reducedMotion;
+      let hovering = false;
+      let timer;
+
+      const dots = slides.map((slide, slideIndex) => {
+        const button = document.createElement("button");
+        button.className = "dot";
+        button.type = "button";
+        button.setAttribute("aria-label", `Go to slide ${slideIndex + 1}: ${slide.title}`);
+        button.addEventListener("click", () => {
+          setPlaying(false);
+          show(slideIndex, true);
+        });
+        dotsContainer.append(button);
+        return button;
+      });
+
+      function schedule() {
+        window.clearTimeout(timer);
+        if (!playing || hovering || document.hidden) return;
+        timer = window.setTimeout(() => show(index + 1, false), intervalMilliseconds);
+      }
+
+      function updateLocation() {
+        window.history.replaceState(
+          null,
+          "",
+          `?slide=${index + 1}${playing ? "" : "&autoplay=0"}`
+        );
+      }
+
+      function show(nextIndex, announce) {
+        index = (nextIndex + slides.length) % slides.length;
+        const current = slides[index];
+        image.src = `./frames/${current.file}`;
+        image.alt = current.alt;
+        count.textContent = `${index + 1} / ${slides.length}`;
+        dots.forEach((dot, dotIndex) => {
+          if (dotIndex === index) dot.setAttribute("aria-current", "true");
+          else dot.removeAttribute("aria-current");
+        });
+        if (announce) status.textContent = `Slide ${index + 1} of ${slides.length}: ${current.title}`;
+        updateLocation();
+        schedule();
+      }
+
+      function setPlaying(value) {
+        playing = value;
+        rotation.textContent = playing ? "Pause" : "Play";
+        rotation.setAttribute(
+          "aria-label",
+          playing ? "Pause automatic slideshow" : "Play automatic slideshow"
+        );
+        updateLocation();
+        schedule();
+      }
+
+      previous.addEventListener("click", () => {
+        setPlaying(false);
+        show(index - 1, true);
+      });
+
+      next.addEventListener("click", () => {
+        setPlaying(false);
+        show(index + 1, true);
+      });
+
+      rotation.addEventListener("click", () => setPlaying(!playing));
+
+      carousel.addEventListener("focusin", (event) => {
+        if (event.target !== rotation) setPlaying(false);
+      });
+      carousel.addEventListener("mouseenter", () => {
+        hovering = true;
+        window.clearTimeout(timer);
+      });
+      carousel.addEventListener("mouseleave", () => {
+        hovering = false;
+        schedule();
+      });
+      document.addEventListener("visibilitychange", schedule);
+      carousel.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          previous.click();
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          next.click();
+        } else if (event.key === " " && event.target.tagName !== "BUTTON") {
+          event.preventDefault();
+          setPlaying(!playing);
+        }
+      });
+
+      show(index, false);
+      setPlaying(playing);
+    </script>
+  </body>
+</html>

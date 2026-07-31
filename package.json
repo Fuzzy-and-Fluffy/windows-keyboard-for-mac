@@ -1,6 +1,6 @@
 {
   "name": "windows-keyboard-for-mac",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Device-scoped Windows-style keyboard shortcuts for macOS using Karabiner-Elements.",
   "private": true,
   "license": "MIT",

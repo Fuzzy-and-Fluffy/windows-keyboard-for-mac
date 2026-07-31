@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const run = promisify(execFile);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(root, "docs", "assets");
+const interactiveFramesDirectory = path.join(root, "docs", "demo", "frames");
 const gifPath = path.join(outputDirectory, "windows-keyboard-for-mac-demo.gif");
 const videoPath = path.join(outputDirectory, "windows-keyboard-for-mac-demo.mp4");
 const width = 1200;
@@ -229,11 +230,25 @@ async function main() {
   const temporaryDirectory = await fs.mkdtemp(
     path.join(os.tmpdir(), "windows-keyboard-for-mac-demo-")
   );
-  const sceneSvgs = scenes();
-  const sequence = [0, 0, 1, 2, 3, 4, 5, 5];
+  const sceneSvgs = scenes().map((svg) => svg.replace(/[ \t]+$/gm, ""));
+  // Allow enough time to read the text and scan the visual shortcut examples.
+  // The interactive demo uses an eight-second default and lets visitors pause
+  // or navigate manually; the GIF keeps the denser scenes visible longer.
+  const sceneDurations = [7, 8, 9, 9, 9, 7];
+  const sequence = sceneDurations.flatMap((duration, sceneIndex) =>
+    Array.from({ length: duration }, () => sceneIndex)
+  );
 
   try {
     await fs.mkdir(outputDirectory, { recursive: true });
+    await fs.mkdir(interactiveFramesDirectory, { recursive: true });
+    for (let index = 0; index < sceneSvgs.length; index += 1) {
+      await fs.writeFile(
+        path.join(interactiveFramesDirectory, `scene-${index + 1}.svg`),
+        sceneSvgs[index],
+        "utf8"
+      );
+    }
     for (let index = 0; index < sequence.length; index += 1) {
       const frameName = `frame-${String(index).padStart(2, "0")}`;
       const svgPath = path.join(temporaryDirectory, `${frameName}.svg`);
@@ -256,7 +271,7 @@ async function main() {
       "-loglevel",
       "error",
       "-framerate",
-      "1/2",
+      "1",
       "-i",
       inputPattern,
       "-filter_complex",
@@ -271,7 +286,7 @@ async function main() {
       "-loglevel",
       "error",
       "-framerate",
-      "1/2",
+      "1",
       "-i",
       inputPattern,
       "-vf",
@@ -292,6 +307,8 @@ async function main() {
 
   console.log(gifPath);
   console.log(videoPath);
+  console.log(interactiveFramesDirectory);
+  console.log(`Duration: ${sceneDurations.reduce((sum, value) => sum + value, 0)} seconds`);
 }
 
 await main();
