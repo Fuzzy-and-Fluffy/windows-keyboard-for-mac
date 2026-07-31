@@ -17,6 +17,7 @@ mkdir -p \
   "$BUNDLE_DIR/installer" \
   "$BUNDLE_DIR/dist" \
   "$BUNDLE_DIR/docs/assets" \
+  "$BUNDLE_DIR/docs/demo/frames" \
   "$RELEASE_DIR"
 
 cp \
@@ -39,6 +40,8 @@ cp \
 cp \
   "$ROOT_DIR/docs/assets/windows-keyboard-for-mac-demo.gif" \
   "$BUNDLE_DIR/docs/assets/"
+cp "$ROOT_DIR/docs/demo/index.html" "$BUNDLE_DIR/docs/demo/"
+cp "$ROOT_DIR"/docs/demo/frames/*.svg "$BUNDLE_DIR/docs/demo/frames/"
 
 chmod +x \
   "$BUNDLE_DIR/install.command" \
