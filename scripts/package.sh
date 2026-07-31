@@ -13,7 +13,11 @@ node "$ROOT_DIR/src/generate-profile.mjs" >/dev/null
 "$ROOT_DIR/scripts/audit-public.sh"
 
 BUNDLE_DIR="$STAGING_DIR/Windows Keyboard for Mac"
-mkdir -p "$BUNDLE_DIR/installer" "$BUNDLE_DIR/dist" "$BUNDLE_DIR/docs" "$RELEASE_DIR"
+mkdir -p \
+  "$BUNDLE_DIR/installer" \
+  "$BUNDLE_DIR/dist" \
+  "$BUNDLE_DIR/docs/assets" \
+  "$RELEASE_DIR"
 
 cp \
   "$ROOT_DIR/install.command" \
@@ -32,6 +36,9 @@ cp \
   "$ROOT_DIR/docs/privacy.md" \
   "$ROOT_DIR/docs/quick-start.md" \
   "$BUNDLE_DIR/docs/"
+cp \
+  "$ROOT_DIR/docs/assets/windows-keyboard-for-mac-demo.gif" \
+  "$BUNDLE_DIR/docs/assets/"
 
 chmod +x \
   "$BUNDLE_DIR/install.command" \

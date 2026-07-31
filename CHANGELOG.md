@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0 — 2026-07-31
+
+- Changed `Alt+F4` from quitting the active macOS app to closing the active
+  top-level window, matching Windows more closely.
+- Added app-specific close-window handling: browsers close the current window,
+  Finder closes its front window regardless of tab count, and ordinary apps
+  receive `Command+W`.
+- Kept `Ctrl+F4` as the separate close-document or close-tab shortcut.
+- Added device-scoped F1–F12 normalization so selected Windows keyboards emit
+  standard function keys when macOS media-key mode is enabled.
+- Kept the public profile free of app-specific `Ctrl+Space` preferences.
+- Added a visual shortcut walkthrough and a clearer first-run README.
+
 ## 0.2.1 — 2026-07-28
 
 - Prevented Finder file actions from hijacking filename, search-field, and
