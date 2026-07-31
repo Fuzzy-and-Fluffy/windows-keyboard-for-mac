@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Made Home and End focus-aware: text controls retain Windows-style line and
+  document navigation, while non-text views receive native Home/End events.
+- Prevented Home/End from flashing or invoking application menu commands when
+  no text editor has focus.
+
 ## 0.3.1 — 2026-07-31
 
 - Slowed the visual walkthrough from 16 seconds to 49 seconds, keeping each

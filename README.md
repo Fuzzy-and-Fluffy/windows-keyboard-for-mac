@@ -150,7 +150,9 @@ Highlights:
 - `Win+Shift+S` captures a selected area;
 - `Alt+Tab` switches apps, while `Alt+F4` closes the active top-level browser or Finder window instead of merely closing its current tab;
 - the selected Windows keyboard keeps `F1` through `F12` as standard function keys even when macOS media-key mode is enabled;
-- Windows-style Home/End, Ctrl+Arrow and word deletion are translated;
+- Windows-style Home/End is translated while editing text and otherwise
+  passes through for native page navigation; Ctrl+Arrow and word deletion are
+  translated;
 - Finder gets Windows-style cut/move, Enter, F2, Delete, Shift+Delete and Backspace behavior without hijacking filename or search-field editing;
 - terminal apps get raw Ctrl sequences and `Ctrl+Shift+C/V/N/T/W`;
 - listed remote desktop/VM clients receive physical Ctrl and Windows modifiers natively;

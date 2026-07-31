@@ -59,8 +59,9 @@ The final screenshot action still follows the macOS Screenshot shortcut settings
 | Ctrl+Arrow | Move by word or paragraph |
 | Ctrl+Shift+Arrow | Select by word or paragraph |
 | Ctrl+Backspace / Delete | Delete previous / next word |
-| Home / End | Start / end of line |
-| Ctrl+Home / End | Start / end of document |
+| Home / End in a text control | Start / end of line |
+| Ctrl+Home / End in a text control | Start / end of document |
+| Home / End outside a text control | Native app behavior, normally top / bottom of page content |
 | Alt+Tab / Alt+Shift+Tab | Switch apps forward / backward |
 | Alt+F4 in Chrome, Edge, Safari, Firefox, Brave, or Opera | Close the current window, including all of its tabs (`Command+Shift+W`) |
 | Alt+F4 in Finder | Close the front Finder window regardless of its tab count |
