@@ -61,6 +61,28 @@ jq -e '
 ' dist/windows-keyboard-for-mac-profile.json >/dev/null
 
 jq -e '
+  (.complex_modifications.rules[-1].description ==
+    "[Windows Keyboard for Mac 10] Function keys: keep F1-F12 standard on selected Windows keyboards") and
+  ([.complex_modifications.rules[-1].manipulators[] |
+    select(
+      (.from.key_code | test("^f([1-9]|1[0-2])$")) and
+      .from.modifiers.optional == ["any"] and
+      .to == [{
+        "key_code": .from.key_code,
+        "modifiers": ["fn"]
+      }] and
+      ([.conditions[] |
+        select(
+          .type == "variable_unless" and
+          .name == "system.use_fkeys_as_standard_function_keys" and
+          .value == true
+        )
+      ] | length) == 1
+    )
+  ] | length) == 12
+' dist/windows-keyboard-for-mac-profile.json >/dev/null
+
+jq -e '
   ([.complex_modifications.rules[] |
     select(.description == "[Windows Keyboard for Mac 03] Finder: Windows Explorer behavior") |
     .manipulators[] |
@@ -110,6 +132,69 @@ jq -e '
       ] | length) == 1
     )
   ] | length) == 8
+' dist/windows-keyboard-for-mac-profile.json >/dev/null
+
+jq -e '
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 06] Browser and Finder window compatibility") |
+    .manipulators[] |
+    select(
+      .from.key_code == "f4" and
+      .from.modifiers.mandatory == ["option"] and
+      .to == [{
+        "key_code": "w",
+        "modifiers": ["left_command", "left_shift"]
+      }] and
+      .description == "Alt+F4 closes the current browser window, not just its active tab." and
+      ([.conditions[] |
+        select(
+          .type == "frontmost_application_if" and
+          (.bundle_identifiers | index("^com\\.google\\.Chrome")) != null and
+          (.bundle_identifiers | index("^com\\.apple\\.finder$")) == null
+        )
+      ] | length) == 1
+    )
+  ] | length) == 1 and
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 06] Browser and Finder window compatibility") |
+    .manipulators[] |
+    select(
+      .from.key_code == "f4" and
+      .from.modifiers.mandatory == ["option"] and
+      .to == [{
+        "shell_command": "/usr/bin/osascript -e '\''tell application id \"com.apple.finder\"'\'' -e '\''if (count of Finder windows) > 0 then close front Finder window'\'' -e '\''end tell'\''"
+      }] and
+      .description == "Alt+F4 closes the front Finder window regardless of its tab count." and
+      ([.conditions[] |
+        select(
+          .type == "frontmost_application_if" and
+          .bundle_identifiers == ["^com\\.apple\\.finder$"]
+        )
+      ] | length) == 1
+    )
+  ] | length) == 1 and
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 07] Alt shortcuts") |
+    .manipulators[] |
+    select(
+      .from.key_code == "f4" and
+      .from.modifiers.mandatory == ["option"] and
+      .to == [{"key_code": "w", "modifiers": ["left_command"]}] and
+      .description == "Alt+F4 closes the active window in other apps." and
+      ([.conditions[] |
+        select(.type == "frontmost_application_unless")
+      ] | length) == 2
+    )
+  ] | length) == 1 and
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 07] Alt shortcuts") |
+    .manipulators[] |
+    select(
+      .from.key_code == "f4" and
+      .from.modifiers.mandatory == ["option"] and
+      .to == [{"key_code": "q", "modifiers": ["left_command"]}]
+    )
+  ] | length) == 0
 ' dist/windows-keyboard-for-mac-profile.json >/dev/null
 
 jq '{title: "Windows Keyboard for Mac", rules: .complex_modifications.rules}' \

@@ -64,6 +64,41 @@ modifier translation and reaches macOS as `Command+Space`. Users choose their
 own third-party app shortcuts after installation and should avoid combinations
 reserved by the shortcut matrix.
 
+## Standard function keys on selected Windows keyboards
+
+macOS can treat the F-key row as brightness, media, and other special keys.
+When that mode is enabled, Windows Keyboard for Mac emits `Fn+F1` through
+`Fn+F12` from the selected Windows keyboard so applications receive standard
+function keys. The normalization rule is deliberately last: semantic rules
+such as `Alt+F4`, `Ctrl+F4`, Finder `F2`, and browser `F5` are evaluated first.
+
+The built-in keyboard and unregistered keyboards are not affected. If a
+keyboard's own firmware or Fn-lock sends consumer events instead of F-key
+events, the user must first switch that keyboard to its standard F-key mode;
+consumer usages are model-specific and are not guessed globally.
+
+## Windows close-window semantics
+
+Windows `Alt+F4` closes the active top-level window, while `Ctrl+F4` closes the
+active document or tab. A single macOS shortcut cannot preserve that distinction
+in every app: supported browsers use `Command+W` for the active tab and
+`Command+Shift+W` for the current window, while ordinary macOS apps use
+`Command+W` for the front window. Finder is state-dependent: with multiple tabs
+it exposes `Command+W` for Close Tab and `Command+Shift+W` for Close Window, but
+with one tab its Close Window command is `Command+W`.
+
+The browser and tabbed-window compatibility rule therefore handles `Alt+F4`
+first for supported browsers and emits `Command+Shift+W`. Finder uses a local
+AppleScript application action that closes its front window directly, so the
+result does not depend on the number of tabs. The general Alt rule explicitly
+excludes browsers and Finder and emits `Command+W`. None of these paths emits
+`Command+Q`, because closing a Windows window does not mean quitting every
+window owned by the macOS app.
+
+The first Finder `Alt+F4` may cause macOS to request Automation permission for
+Karabiner-Elements to control Finder. The user must approve that permission;
+the installer cannot grant it.
+
 ## Finder text-editing boundary
 
 Finder item actions are enabled only when Karabiner-Elements can identify a
