@@ -45,7 +45,7 @@ Because physical Ctrl becomes Command before complex rules are evaluated, these 
 | Ctrl+Shift+3 | Command+Shift+3 | Full-screen screenshot |
 | Ctrl+Shift+4 | Command+Shift+4 | Selected-area screenshot |
 | Ctrl+Shift+5 | Command+Shift+5 | Screenshot and recording controls |
-| Ctrl+Space | Control+Space | Native shortcut reserved for an app selected by the user |
+| Ctrl+Space | Command+Space | Normal translated shortcut; not reserved for a particular app |
 
 The final screenshot action still follows the macOS Screenshot shortcut settings. If those shortcuts were customized, the customized macOS action runs.
 

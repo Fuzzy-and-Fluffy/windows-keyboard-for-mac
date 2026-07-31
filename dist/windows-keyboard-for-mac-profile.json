@@ -4781,54 +4781,6 @@
           {
             "type": "basic",
             "from": {
-              "key_code": "spacebar",
-              "modifiers": {
-                "mandatory": [
-                  "command"
-                ],
-                "optional": [
-                  "caps_lock"
-                ]
-              }
-            },
-            "to": [
-              {
-                "key_code": "spacebar",
-                "modifiers": [
-                  "left_control"
-                ]
-              }
-            ],
-            "conditions": [
-              {
-                "type": "device_if",
-                "identifiers": [
-                  {
-                    "vendor_id": 0,
-                    "product_id": 0,
-                    "is_keyboard": true,
-                    "description": "__WINDOWS_KEYBOARD_FOR_MAC_TARGETS__"
-                  }
-                ]
-              },
-              {
-                "type": "frontmost_application_unless",
-                "bundle_identifiers": [
-                  "^com\\.microsoft\\.rdc\\.macos$",
-                  "^com\\.microsoft\\.windowsapp$",
-                  "^com\\.jumpdesktop\\.JumpDesktop$",
-                  "^com\\.citrix\\.XenAppViewer$",
-                  "^com\\.parallels\\.desktop\\.console$",
-                  "^com\\.vmware\\.fusion$",
-                  "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
-                ]
-              }
-            ],
-            "description": "Ctrl+Space remains native Control+Space for a user-selected app shortcut."
-          },
-          {
-            "type": "basic",
-            "from": {
               "key_code": "y",
               "modifiers": {
                 "mandatory": [

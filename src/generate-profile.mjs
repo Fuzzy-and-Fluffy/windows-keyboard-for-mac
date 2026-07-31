@@ -411,13 +411,6 @@ rules.push(
 rules.push(
   rule("[Windows Keyboard for Mac 05] Editing and tab exceptions", [
     manipulator({
-      key: "spacebar",
-      mandatory: ["command"],
-      to: [toKey("spacebar", ["left_control"])],
-      conditions: [remoteUnless],
-      description: "Ctrl+Space remains native Control+Space for a user-selected app shortcut."
-    }),
-    manipulator({
       key: "y",
       mandatory: ["command"],
       to: [toKey("z", ["left_command", "left_shift"])],

@@ -29,7 +29,7 @@ jq -e '
       .from.modifiers.mandatory == ["command"] and
       .to == [{"key_code": "spacebar", "modifiers": ["left_control"]}]
     )
-  ] | length) == 1 and
+  ] | length) == 0 and
   ([.complex_modifications.rules[].manipulators[] |
     select(
       .from.key_code == "spacebar" and

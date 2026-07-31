@@ -59,10 +59,10 @@ Tap-Windows, `Win+R`, and `Win+S` use Karabiner's
 depend on a Spotlight keyboard shortcut.
 
 The distributable profile intentionally contains no application-specific
-shortcut defaults. Physical `Ctrl+Space` is explicitly restored to native
-`Control+Space`, so it stays distinct from `Win+Space` and can be assigned to
-an app chosen by the user. Users should avoid combinations reserved by the
-shortcut matrix.
+shortcut exceptions. Physical `Ctrl+Space` therefore follows the core
+modifier translation and reaches macOS as `Command+Space`. Users choose their
+own third-party app shortcuts after installation and should avoid combinations
+reserved by the shortcut matrix.
 
 ## Standard function keys on selected Windows keyboards
 

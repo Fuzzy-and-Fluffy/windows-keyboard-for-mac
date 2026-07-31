@@ -110,7 +110,7 @@ Highlights:
 
 - common Windows `Ctrl` editing shortcuts work automatically;
 - physical `Win+Space` switches input source;
-- physical `Ctrl+Space` remains native `Control+Space` for an app shortcut chosen by the user, while `Win+Space` remains input-source switching;
+- the public profile does not reserve `Ctrl+Space` for a particular app; users can choose their own dictation shortcut;
 - `Ctrl+Shift+3/4/5` invoke the corresponding macOS screenshot shortcuts;
 - `Win+Shift+S` captures a selected area;
 - `Alt+Tab` switches apps, while `Alt+F4` closes the active top-level browser or Finder window instead of merely closing its current tab;
