@@ -15,4 +15,4 @@ windows-keyboard-for-mac-backups/
 
 # Release artifacts are generated locally and attached to GitHub Releases.
 release/*.zip
-release/*.zip.sha256
+release/*.sha256

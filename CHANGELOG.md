@@ -1,11 +1,15 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 — 2026-08-02
 
 - Made Home and End focus-aware: text controls retain Windows-style line and
   document navigation, while non-text views receive native Home/End events.
 - Prevented Home/End from flashing or invoking application menu commands when
   no text editor has focus.
+- Added a clear choice between the all-keyboards community catalog edition and
+  the device-scoped GitHub edition.
+- Documented the configuration's acceptance into the official
+  Karabiner-Elements community rules catalog.
 
 ## 0.3.1 — 2026-07-31
 
