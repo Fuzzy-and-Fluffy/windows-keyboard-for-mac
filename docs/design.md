@@ -109,6 +109,21 @@ This keeps Windows-style item actions such as Enter, Delete, Shift+Delete, and
 Backspace from overriding text editing. The focused-role condition requires
 Karabiner-Elements 16 or newer and its macOS Accessibility permission.
 
+## Focus-aware Home and End
+
+Windows gives Home and End two related meanings: they move to the start or end
+of a line while editing text, and they navigate to the top or bottom of page
+content when no text control has focus. A global `Home → Command+Left` mapping
+only implements the first meaning and can accidentally trigger an app menu
+item when focus leaves the editor.
+
+The Home, End, Shift+Home/End, and Ctrl+Home/End translations therefore run
+only when Karabiner reports a focused Accessibility role beginning with
+`AXText`. Outside a text control, the physical Home or End event passes through
+unchanged so browsers, web views, terminals, and other apps can apply their
+native page-level behavior. If the focused role is missing, the rules fail
+closed and also pass the original event through.
+
 ## Transaction model
 
 Install:

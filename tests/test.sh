@@ -258,6 +258,41 @@ jq -e '
 ' "$TEMP_DIR/add-keyboard-result.json" >/dev/null
 
 jq -e '
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 04] Text navigation and deletion") |
+    .manipulators[] |
+    select(.from.key_code == "home" or .from.key_code == "end")
+  ] | length) == 8 and
+  ([.complex_modifications.rules[] |
+    select(.description == "[Windows Keyboard for Mac 04] Text navigation and deletion") |
+    .manipulators[] |
+    select(.from.key_code == "home" or .from.key_code == "end") |
+    select(
+      ([.conditions[] |
+        select(
+          .type == "expression_if" and
+          .expression == "accessibility.focused_ui_element.role_string like '\''AXText*'\''"
+        )
+      ] | length) == 1 and
+      ([.conditions[] |
+        select(
+          .type == "variable_unless" and
+          .name == "accessibility.focused_ui_element.role_string" and
+          .value == 0
+        )
+      ] | length) == 1 and
+      ([.conditions[] |
+        select(
+          .type == "variable_unless" and
+          .name == "accessibility.focused_ui_element.role_string" and
+          .value == ""
+        )
+      ] | length) == 1
+    )
+  ] | length) == 8
+' dist/windows-keyboard-for-mac-profile.json >/dev/null
+
+jq -e '
   ([.profiles[] | select(.name == "Windows Keyboard for Mac") | .devices[]] | length) == 2 and
   ([.profiles[] | select(.name == "Windows Keyboard for Mac") |
     .complex_modifications.rules[].manipulators[].conditions[] |

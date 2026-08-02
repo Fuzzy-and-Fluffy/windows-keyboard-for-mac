@@ -88,6 +88,10 @@ function expressionUnless(expression) {
   return { type: "expression_unless", expression };
 }
 
+function expressionIf(expression) {
+  return { type: "expression_if", expression };
+}
+
 function from(keyCode, mandatory = [], optional = ["caps_lock"]) {
   const result = { key_code: keyCode };
   if (mandatory.length || optional.length) {
@@ -161,6 +165,13 @@ const terminalIf = appIf(terminalBundles);
 const browserIf = appIf(browserBundles);
 const appSpecificCloseWindowUnless = appUnless(appSpecificCloseWindowBundles);
 const finderIf = appIf(["^com\\.apple\\.finder$"]);
+const focusedTextIf = [
+  variableUnless("accessibility.focused_ui_element.role_string", 0),
+  variableUnless("accessibility.focused_ui_element.role_string", ""),
+  expressionIf(
+    "accessibility.focused_ui_element.role_string like 'AXText*'"
+  )
+];
 const finderItemIf = [
   finderIf,
   variableUnless("accessibility.focused_ui_element.role_string", 0),
@@ -325,54 +336,54 @@ rules.push(
       key: "home",
       mandatory: ["command", "shift"],
       to: [toKey("up_arrow", ["left_command", "left_shift"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Ctrl+Shift+Home selects to the start of the document."
     }),
     manipulator({
       key: "home",
       mandatory: ["command"],
       to: [toKey("up_arrow", ["left_command"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Ctrl+Home moves to the start of the document."
     }),
     manipulator({
       key: "home",
       mandatory: ["shift"],
       to: [toKey("left_arrow", ["left_command", "left_shift"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Shift+Home selects to the start of the line."
     }),
     manipulator({
       key: "home",
       to: [toKey("left_arrow", ["left_command"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Home moves to the start of the line."
     }),
     manipulator({
       key: "end",
       mandatory: ["command", "shift"],
       to: [toKey("down_arrow", ["left_command", "left_shift"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Ctrl+Shift+End selects to the end of the document."
     }),
     manipulator({
       key: "end",
       mandatory: ["command"],
       to: [toKey("down_arrow", ["left_command"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Ctrl+End moves to the end of the document."
     }),
     manipulator({
       key: "end",
       mandatory: ["shift"],
       to: [toKey("right_arrow", ["left_command", "left_shift"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "Shift+End selects to the end of the line."
     }),
     manipulator({
       key: "end",
       to: [toKey("right_arrow", ["left_command"])],
-      conditions: [remoteUnless],
+      conditions: [remoteUnless, ...focusedTextIf],
       description: "End moves to the end of the line."
     }),
     ...["left_arrow", "right_arrow", "up_arrow", "down_arrow"].flatMap((key) => [

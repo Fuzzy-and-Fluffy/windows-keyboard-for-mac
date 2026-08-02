@@ -1,11 +1,12 @@
 # Windows Keyboard for Mac
 
-**Keep your Windows-keyboard muscle memory on macOS—without changing the
-MacBook keyboard.**
+**Keep your Windows-keyboard muscle memory on macOS—on every keyboard or only
+the Windows keyboards you choose.**
 
 [![Release](https://img.shields.io/github/v/release/Fuzzy-and-Fluffy/windows-keyboard-for-mac)](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/releases/latest)
 [![CI](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/actions/workflows/ci.yml/badge.svg)](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb.svg)](./LICENSE)
+[![Karabiner community catalog](https://img.shields.io/badge/Karabiner-community_catalog-2563eb.svg)](https://ke-complex-modifications.pqrs.org/)
 
 [![Windows Keyboard for Mac shortcut walkthrough](./docs/assets/windows-keyboard-for-mac-demo.gif)](https://fuzzy-and-fluffy.github.io/windows-keyboard-for-mac/demo/)
 
@@ -13,17 +14,47 @@ MacBook keyboard.**
 to pause, move to the previous or next scene, or use the arrow keys. The GIF
 keeps each scene visible for 7–9 seconds.
 
-Windows Keyboard for Mac is a free, open-source Karabiner-Elements profile and
-reversible installer. It gives selected external Windows keyboards familiar
-`Ctrl`, `Alt+Tab`, `Alt+F4`, Finder, Terminal, screenshot, window-tiling, and
-F1–F12 behavior while leaving the built-in Apple keyboard alone.
+Windows Keyboard for Mac is a free, open-source Karabiner-Elements shortcut
+layer. Its community edition has been accepted into the official
+Karabiner-Elements community rules catalog. It gives macOS familiar `Ctrl`,
+`Alt+Tab`, `Alt+F4`, Finder, Terminal, screenshot, window-tiling, Home/End, and
+F1–F12 behavior without relying on a global macOS modifier-key swap.
 
-**[Download the latest release](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/releases/latest)**
+**[Install from the Karabiner community catalog](#choose-an-edition)**
+· **[Download the device-scoped edition](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/releases/latest)**
 · [Quick start](./docs/quick-start.md)
 · [Shortcut matrix](./docs/shortcut-matrix.md)
 
-> Current releases are unsigned GitHub previews. They require macOS 15 or newer
-> and Karabiner-Elements 16 or newer.
+> Both editions require macOS 15 or newer and Karabiner-Elements 16 or newer.
+> The downloadable device-scoped edition remains an unsigned GitHub preview.
+
+## Choose an edition
+
+| Edition | Best for | Keyboard scope | Install and recovery |
+|---|---|---|---|
+| **Community catalog** | A Windows-style shortcut layer on every keyboard, including a MacBook keyboard | All keyboards | Import one predefined rule from Karabiner-Elements |
+| **Device-scoped GitHub edition** | Converting only selected external Windows keyboards | Only keyboard models selected during setup | Guided installer with discovery, backup, diagnostics, verification, and rollback |
+
+### Community catalog: all keyboards
+
+1. Open Karabiner-Elements → **Complex Modifications**.
+2. Choose **Add predefined rule** → **Import more rules from the internet**.
+3. Search for **Windows Keyboard for Mac (community edition)**, import it, and
+   enable **Windows Keyboard for Mac: complete Windows-style shortcuts (all
+   keyboards)**.
+
+This edition deliberately applies to every keyboard. Use the device-scoped
+edition below if the MacBook keyboard or any other keyboard should retain
+native macOS shortcuts.
+
+### Device-scoped GitHub edition: selected Windows keyboards
+
+1. Install and open [Karabiner-Elements](https://karabiner-elements.pqrs.org/),
+   then approve its required macOS permissions.
+2. Connect the Windows keyboard and
+   [download the latest release](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/releases/latest).
+3. Extract it, Control-click `install.command`, choose **Open**, and select the
+   keyboard or keyboards to convert.
 
 ## What it gives you
 
@@ -38,14 +69,6 @@ F1–F12 behavior while leaving the built-in Apple keyboard alone.
 - Automatic backup, live installation verification, diagnostics, rollback, and
   a reversible uninstaller.
 - No telemetry, no account, and no app-specific personal shortcuts.
-
-## Install in three steps
-
-1. Install and open [Karabiner-Elements](https://karabiner-elements.pqrs.org/),
-   then approve its required macOS permissions.
-2. Connect the Windows keyboard and download the latest release ZIP.
-3. Extract it, Control-click `install.command`, choose **Open**, and select the
-   keyboard or keyboards to convert.
 
 ## Why this architecture
 
@@ -150,7 +173,9 @@ Highlights:
 - `Win+Shift+S` captures a selected area;
 - `Alt+Tab` switches apps, while `Alt+F4` closes the active top-level browser or Finder window instead of merely closing its current tab;
 - the selected Windows keyboard keeps `F1` through `F12` as standard function keys even when macOS media-key mode is enabled;
-- Windows-style Home/End, Ctrl+Arrow and word deletion are translated;
+- Windows-style Home/End is translated while editing text and otherwise
+  passes through for native page navigation; Ctrl+Arrow and word deletion are
+  translated;
 - Finder gets Windows-style cut/move, Enter, F2, Delete, Shift+Delete and Backspace behavior without hijacking filename or search-field editing;
 - terminal apps get raw Ctrl sequences and `Ctrl+Shift+C/V/N/T/W`;
 - listed remote desktop/VM clients receive physical Ctrl and Windows modifiers natively;
