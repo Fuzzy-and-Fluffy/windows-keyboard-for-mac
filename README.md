@@ -14,6 +14,13 @@ the Windows keyboards you choose.**
 to pause, move to the previous or next scene, or use the arrow keys. The GIF
 keeps each scene visible for 7–9 seconds.
 
+> **Prefer this as one native app, no Karabiner required?** The same
+> maintainer built [Windsify](https://windsify.com) — the free,
+> open-source app version of this ruleset
+> ([source](https://github.com/Fuzzy-and-Fluffy/windsify-free)), with an
+> optional one-time Pro upgrade for Finder cut-paste, system keys, and
+> window management. This Karabiner edition stays maintained.
+
 Windows Keyboard for Mac is a free, open-source Karabiner-Elements shortcut
 layer. Its community edition has been accepted into the official
 Karabiner-Elements community rules catalog. It gives macOS familiar `Ctrl`,
