@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.1 — 2026-09-10
+
+- Added optional VS Code integrated-terminal keybindings for Ctrl+C Interrupt,
+  Ctrl+Shift+C/V copy/paste, and raw Ctrl+V, scoped with `terminalFocus`.
+- Included the keybindings and troubleshooting guide in the release ZIP, with
+  instructions for both Karabiner editions and for removing the workaround.
+- Clarified that the device-scoped profile template cannot be imported as a
+  community Complex Modifications rule, and provided the correct import URL.
+- Documented the unresolved Tahoe Spotlight report and focused diagnostics.
+- Kept the Karabiner mapping profile and installer behavior unchanged.
+
 ## 0.4.0 — 2026-08-02
 
 - Made Home and End focus-aware: text controls retain Windows-style line and

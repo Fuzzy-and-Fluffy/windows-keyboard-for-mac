@@ -138,6 +138,11 @@ Supported terminal bundle IDs include Terminal, iTerm2, WezTerm, Warp, Alacritty
 
 This preserves `Ctrl+C` interrupt behavior instead of turning it into Copy.
 
+VS Code's integrated terminal shares an application identifier with its code
+editor, so it is not included in the terminal application list. See the
+[optional VS Code terminal keybindings](./troubleshooting.md#vs-code-integrated-terminal)
+for a focus-specific workaround for Ctrl+C and Ctrl+Shift+C/V.
+
 ## Remote desktop and virtual machines
 
 For listed Microsoft Windows App/Remote Desktop, Jump Desktop, Citrix, Parallels, VMware Fusion, and VirtualBox VM bundle IDs, Windows Keyboard for Mac reverses its local modifier swap before the client receives the keys:

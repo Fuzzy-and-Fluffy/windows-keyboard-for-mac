@@ -54,6 +54,10 @@ This edition deliberately applies to every keyboard. Use the device-scoped
 edition below if the MacBook keyboard or any other keyboard should retain
 native macOS shortcuts.
 
+For a direct import, see [the community import instructions](./docs/troubleshooting.md#community-import).
+`dist/windows-keyboard-for-mac-profile.json` is the device-scoped installer's
+profile template; it cannot be imported as a Complex Modifications rule.
+
 ### Device-scoped GitHub edition: selected Windows keyboards
 
 1. Install and open [Karabiner-Elements](https://karabiner-elements.pqrs.org/),
@@ -154,6 +158,10 @@ Double-click [`doctor.command`](./doctor.command), or run:
 ```
 
 The diagnostic checks Karabiner availability and version, the live profile, target devices, rule isolation, macOS Modifier Keys conflicts, and `hidutil UserKeyMapping`.
+
+For community import errors, Spotlight, or the VS Code integrated terminal,
+see [Troubleshooting](./docs/troubleshooting.md). `doctor.command` diagnoses
+the device-scoped installation; it does not validate the community rule.
 
 ## Uninstall or roll back
 
