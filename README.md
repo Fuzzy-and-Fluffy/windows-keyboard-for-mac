@@ -133,7 +133,7 @@ The generated rules are not tied to Microsoft. Logitech, Dell, HP, Keychron-in-W
 
 To add another keyboard later, connect it and double-click [`add-keyboard.command`](./add-keyboard.command). Existing registered keyboards are retained even if they are disconnected at the time. Re-running `install.command` has the same additive behavior.
 
-The installer also reads that Mac's enabled **Input Sources** system shortcut and uses it behind physical `Win+Space`. Spotlight actions open the Spotlight app directly rather than assuming `Command+Space` or `Option+Space`. This lets the same package follow each Mac's existing shortcut customization.
+The installer also reads that Mac's enabled **Input Sources** system shortcut and uses it behind physical `Win+Space`. Spotlight actions emit the native Apple Spotlight key event without assuming `Command+Space` or `Option+Space`. This lets the same package follow each Mac's existing shortcut customization.
 
 The installer stops without changing anything if it finds a macOS Modifier Keys mapping or an active `hidutil` mapping. This prevents the inconsistent “two remappers both touching Ctrl/Command” state.
 

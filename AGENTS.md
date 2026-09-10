@@ -11,8 +11,8 @@
 - Preserve physical `Win+Space` as the host Mac's input-source action. Keep
   the public profile free of app-specific shortcuts; physical `Ctrl+Space`
   follows the core `Ctrl` to `Command` translation. Discover per-Mac system
-  shortcuts instead of copying one Mac's key codes; open Spotlight by
-  application action.
+  shortcuts instead of copying one Mac's key codes; open Spotlight with its
+  native `apple_vendor_keyboard_key_code` event.
 - Keep install, add-keyboard, and uninstall transactional: validate, back up,
   write atomically, activate, read back live state, and restore on failure.
 - For implementation changes, run `npm run build` and `npm test`. Before

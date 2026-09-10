@@ -104,11 +104,16 @@ Finder `F2`, and browser `F5` take priority.
 | Win+Down | Return to previous window size |
 | Win+Shift+S | Selected-area screenshot |
 
+The Windows-key tap, `Win+R`, and `Win+S` intentionally open the same Spotlight
+search interface. They provide familiar entry points for Start, Run, and Search;
+`Win+R` does not open a Windows-style Run dialog or change Spotlight's mode.
+Release a standalone Windows-key tap within 250 ms.
+
 Window tiling uses Apple’s native macOS 15+ shortcuts and needs no Rectangle or other window manager.
 
 `Win+Space` is bound at installation time to the Input Sources shortcut enabled
-on that particular Mac. Spotlight actions open the system Spotlight app
-directly and therefore do not depend on that Mac's Spotlight shortcut.
+on that particular Mac. Spotlight actions emit the native Apple Spotlight
+key event and therefore do not depend on that Mac's Spotlight shortcut.
 
 ## Finder
 

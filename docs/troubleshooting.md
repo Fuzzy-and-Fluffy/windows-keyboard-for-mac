@@ -36,29 +36,34 @@ and follow the [device-scoped quick start](./quick-start.md).
 
 ## Spotlight
 
-The published rules intend a tap of either Windows key, `Win+R`, and `Win+S`
-to open Spotlight. A tap must be released within 250 ms without pressing
-another key. These shortcuts are excluded in supported remote desktop and VM
-applications.
+A tap of either Windows key, `Win+R`, and `Win+S` intentionally open the same
+Spotlight search interface. They correspond to the familiar Windows Start,
+Run, and Search entry points; they do not select different search modes. A tap
+must be released within 250 ms without pressing another key. These shortcuts
+are excluded in supported remote desktop and VM applications.
 
-All four paths use Karabiner's
-[`software_function.open_application`](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/to/software_function/open_application/)
-with `com.apple.Spotlight`. Reports of no visible Spotlight on macOS Tahoe are
-being investigated in [issue #7](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/issues/7);
-a Tahoe-specific fix has not been confirmed.
+The device-scoped edition uses the native
+`apple_vendor_keyboard_key_code: "spotlight"` event from v0.4.2 onward.
+Earlier versions launched `com.apple.Spotlight`, which could leave the search
+UI hidden on macOS Tahoe. On macOS 26.2, a physical Windows keyboard
+reproduced all three failures with Karabiner-Elements 16.1.0. The operator
+confirmed that all three opened Spotlight after the mapping update; the
+post-test environment reported Karabiner-Elements 16.3.0. The native event does
+not require enabling or changing the Mac's Spotlight keyboard shortcut.
 
-To help distinguish a tap-timing problem, another remapping rule, and an
-application-opening problem, include these results in your report:
+For the device-scoped edition, install the
+[v0.4.2 preview](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/releases/tag/v0.4.2)
+ZIP using the existing installer. For the community edition, see
+[issue #7](https://github.com/Fuzzy-and-Fluffy/windows-keyboard-for-mac/issues/7)
+for the community update and import link. Installing the device-scoped ZIP
+does not update a previously imported community rule.
 
-- Exact macOS and Karabiner-Elements versions, keyboard model and Windows/Mac
-  mode, and whether you use the community rule or the ZIP installer.
-- In Finder, test a quick Windows-key tap, `Win+R`, `Win+S`, and `Win+E`
-  separately. Note whether Spotlight or Finder visibly opens.
-- Run `open -b com.apple.Spotlight` in Terminal. Report whether the search UI
-  appears, and any error message. A successful exit code alone does not show
-  that Spotlight became visible.
-- Note any existing Control/Command swaps in Karabiner Simple Modifications,
-  macOS Modifier Keys, or another remapping app.
+If the updated rules still do not open Spotlight, check that the rule is
+enabled and that another remapper or Control/Command swap is not intercepting
+the key. Include the macOS and Karabiner versions, edition, keyboard model,
+and separate Finder results for a quick Windows-key tap, `Win+R`, `Win+S`, and
+`Win+E` in a report. A successful `open -b com.apple.Spotlight` exit code alone
+does not confirm that its search UI became visible.
 
 Use Karabiner-EventViewer to inspect just the Windows-key press if requested.
 Share the key name and down/up events rather than a full event log or live

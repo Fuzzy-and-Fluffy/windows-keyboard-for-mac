@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2 — 2026-09-10
+
+- Fixed Windows-key taps, Win+R, and Win+S leaving Spotlight hidden on macOS
+  Tahoe by emitting the native Apple Spotlight key event.
+- Kept tap timing, remote exclusions, device scoping, and input-source
+  switching unchanged; disabled repeat on the Spotlight output.
+- Added regression coverage for all four Spotlight paths and documented that
+  the three shortcuts intentionally open the same search interface.
+
 ## 0.4.1 — 2026-09-10
 
 - Added optional VS Code integrated-terminal keybindings for Ctrl+C Interrupt,

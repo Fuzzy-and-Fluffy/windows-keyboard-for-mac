@@ -55,8 +55,11 @@ system shortcuts. During every install or keyboard enrollment, the installer:
 4. verifies the injected event during live configuration readback.
 
 Tap-Windows, `Win+R`, and `Win+S` use Karabiner's
-`software_function.open_application` with `com.apple.Spotlight`, so they do not
-depend on a Spotlight keyboard shortcut.
+native `apple_vendor_keyboard_key_code: "spotlight"` event, with key repeat
+disabled. This is the event used by Karabiner's default Apple Spotlight key
+mapping. Launching `com.apple.Spotlight` can leave the search UI hidden on
+macOS Tahoe; emitting the native key also avoids depending on a customized
+Spotlight keyboard shortcut.
 
 The distributable profile intentionally contains no application-specific
 shortcut exceptions. Physical `Ctrl+Space` therefore follows the core
