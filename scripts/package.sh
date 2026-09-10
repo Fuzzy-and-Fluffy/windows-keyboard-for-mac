@@ -16,6 +16,7 @@ BUNDLE_DIR="$STAGING_DIR/Windows Keyboard for Mac"
 mkdir -p \
   "$BUNDLE_DIR/installer" \
   "$BUNDLE_DIR/dist" \
+  "$BUNDLE_DIR/extras" \
   "$BUNDLE_DIR/docs/assets" \
   "$BUNDLE_DIR/docs/demo/frames" \
   "$RELEASE_DIR"
@@ -31,11 +32,13 @@ cp \
   "$BUNDLE_DIR/"
 cp "$ROOT_DIR/installer/windows-keyboard-for-mac.js" "$BUNDLE_DIR/installer/"
 cp "$ROOT_DIR/dist/windows-keyboard-for-mac-profile.json" "$BUNDLE_DIR/dist/"
+cp "$ROOT_DIR/extras/vscode-terminal-keybindings.json" "$BUNDLE_DIR/extras/"
 cp \
   "$ROOT_DIR/docs/shortcut-matrix.md" \
   "$ROOT_DIR/docs/design.md" \
   "$ROOT_DIR/docs/privacy.md" \
   "$ROOT_DIR/docs/quick-start.md" \
+  "$ROOT_DIR/docs/troubleshooting.md" \
   "$BUNDLE_DIR/docs/"
 cp \
   "$ROOT_DIR/docs/assets/windows-keyboard-for-mac-demo.gif" \

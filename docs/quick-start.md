@@ -3,6 +3,12 @@
 Windows Keyboard for Mac is currently an unsigned GitHub preview for technical
 users and early testers. It requires Karabiner-Elements 16 or newer.
 
+This guide covers the **device-scoped GitHub edition**. To import the
+all-keyboards community rule through Karabiner-Elements, use the
+[community import instructions](./troubleshooting.md#community-import).
+The release's `dist/windows-keyboard-for-mac-profile.json` is an installer
+template, not a file for Karabiner's Complex Modifications importer.
+
 ## 1. Install Karabiner-Elements
 
 Download Karabiner-Elements from its

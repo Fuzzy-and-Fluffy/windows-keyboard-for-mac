@@ -7,6 +7,7 @@ cd "$ROOT_DIR"
 scan_targets=(
   .github
   docs
+  extras
   installer
   scripts
   src
