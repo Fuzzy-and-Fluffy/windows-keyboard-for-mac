@@ -36,29 +36,9 @@ jq -e '
       .from.modifiers.mandatory == ["control"] and
       .to == [{"key_code": "spacebar", "modifiers": ["left_command"]}]
     )
-  ] | length) == 1 and
-  ([.complex_modifications.rules[].manipulators[] |
-    select(
-      .from.key_code == "left_control" and
-      .to_if_alone == [{
-        "software_function": {
-          "open_application": {"bundle_identifier": "com.apple.Spotlight"}
-        }
-      }]
-    )
-  ] | length) == 1 and
-  ([.complex_modifications.rules[].manipulators[] |
-    select(
-      (.description == "Win+R opens Spotlight." or
-       .description == "Win+S opens Spotlight.") and
-      .to == [{
-        "software_function": {
-          "open_application": {"bundle_identifier": "com.apple.Spotlight"}
-        }
-      }]
-    )
-  ] | length) == 2
+  ] | length) == 1
 ' dist/windows-keyboard-for-mac-profile.json >/dev/null
+node tests/spotlight.mjs dist/windows-keyboard-for-mac-profile.json
 
 jq -e '
   (.complex_modifications.rules[-1].description ==

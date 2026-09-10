@@ -118,6 +118,12 @@ function toOpenApplication(bundleIdentifier) {
   };
 }
 
+// Emit the same native HID action as the Spotlight key on an Apple keyboard.
+// Launching com.apple.Spotlight can leave the search UI hidden on macOS Tahoe.
+function toSpotlight() {
+  return { apple_vendor_keyboard_key_code: "spotlight", repeat: false };
+}
+
 function toShellCommand(shellCommand) {
   return { shell_command: shellCommand };
 }
@@ -550,7 +556,7 @@ rules.push(
     manipulator({
       key: "left_control",
       to: [toKey("left_control", [], { lazy: true })],
-      toIfAlone: [toOpenApplication("com.apple.Spotlight")],
+      toIfAlone: [toSpotlight()],
       parameters: {
         "basic.to_if_alone_timeout_milliseconds": 250
       },
@@ -560,7 +566,7 @@ rules.push(
     manipulator({
       key: "right_control",
       to: [toKey("right_control", [], { lazy: true })],
-      toIfAlone: [toOpenApplication("com.apple.Spotlight")],
+      toIfAlone: [toSpotlight()],
       parameters: {
         "basic.to_if_alone_timeout_milliseconds": 250
       },
@@ -585,7 +591,7 @@ rules.push(
       manipulator({
         key,
         mandatory: ["control"],
-        to: [toOpenApplication("com.apple.Spotlight")],
+        to: [toSpotlight()],
         conditions: [remoteUnless],
         description: `Win+${key.toUpperCase()} opens Spotlight.`
       })

@@ -5721,11 +5721,8 @@
             "description": "Tap the left Windows key to open Spotlight.",
             "to_if_alone": [
               {
-                "software_function": {
-                  "open_application": {
-                    "bundle_identifier": "com.apple.Spotlight"
-                  }
-                }
+                "apple_vendor_keyboard_key_code": "spotlight",
+                "repeat": false
               }
             ],
             "parameters": {
@@ -5776,11 +5773,8 @@
             "description": "Tap the right Windows key to open Spotlight.",
             "to_if_alone": [
               {
-                "software_function": {
-                  "open_application": {
-                    "bundle_identifier": "com.apple.Spotlight"
-                  }
-                }
+                "apple_vendor_keyboard_key_code": "spotlight",
+                "repeat": false
               }
             ],
             "parameters": {
@@ -5900,11 +5894,8 @@
             },
             "to": [
               {
-                "software_function": {
-                  "open_application": {
-                    "bundle_identifier": "com.apple.Spotlight"
-                  }
-                }
+                "apple_vendor_keyboard_key_code": "spotlight",
+                "repeat": false
               }
             ],
             "conditions": [
@@ -5949,11 +5940,8 @@
             },
             "to": [
               {
-                "software_function": {
-                  "open_application": {
-                    "bundle_identifier": "com.apple.Spotlight"
-                  }
-                }
+                "apple_vendor_keyboard_key_code": "spotlight",
+                "repeat": false
               }
             ],
             "conditions": [
