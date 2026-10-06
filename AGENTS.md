@@ -20,3 +20,7 @@
   `./doctor.command --non-interactive`. Keep physical shortcut smoke tests,
   signing/notarization, and Apple permission approval as separate outcome
   gates.
+
+## Release signing (owner rule, 2026-10-06)
+
+Sign every release of this project with the company identity only, selected by SHA-1 from the keychain, never by name: `Apple Distribution: EZZY BOOKS PTY LTD` for iPhone (App Store / TestFlight) builds and `Developer ID Application: EZZY BOOKS PTY LTD` for Mac builds distributed outside the App Store. Personal-name identities are retired and must never sign anything. Do not export with automatic/cloud signing (`-allowProvisioningUpdates` with `signingStyle` automatic): it can pick the retired personal certificate from the shared team. Before uploading or installing, run `~/.claude/scripts/assert-signing-identity.sh verify-ios <ipa>` (iPhone) or `verify <app>` (Mac); a non-zero exit stops the release. iPhone uploads stop until the company Apple Distribution certificate exists.
